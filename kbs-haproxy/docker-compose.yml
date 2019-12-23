@@ -1,0 +1,26 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+services:
+    haproxy:
+        image: kylinsystems/kbs-haproxy:${KBS_TAG}
+        container_name: kbs-haproxy
+        restart: always
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            # Mount local configuration
+            - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+        cap_add:
+            - NET_ADMIN
+        ports:
+            - '80:80'
+            - '443:443'
+        networks:
+            default:
+                aliases:
+                    - kbs-haproxy

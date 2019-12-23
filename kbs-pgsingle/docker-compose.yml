@@ -1,0 +1,27 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+services:
+    # PG Database Standalone
+    pgserver:
+        image: kylinsystems/kbs-pgsingle:${KBS_TAG}
+        container_name: kbs-pgserver
+        restart: always
+        build:
+            context: .
+            dockerfile: Pgsingle.Dockerfile
+        ports:
+            - 5432:5432
+        networks:
+            default:
+                aliases:
+                    - kbs-pgserver
+        # logging:
+        #     driver: "gelf"
+        #     options:
+        #         gelf-address: "udp://localhost:12201"
+        #         tag: pgserver
+        

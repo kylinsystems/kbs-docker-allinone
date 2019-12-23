@@ -1,0 +1,22 @@
+version: '3'
+networks:
+    kbs_network:
+        external: true
+
+services:
+    # PG Database Migrator
+    pgmigrator:
+        image: kylinsystems/kbs-pgmigrator:${KBS_TAG}
+        container_name: kbs-pgmigrator
+        build:
+            context: .
+            dockerfile: Pgmigrator.Dockerfile
+        networks:
+            kbs_network:
+                aliases:
+                    - kbs-pgmigrator
+        # logging:
+        #     driver: "gelf"
+        #     options:
+        #         gelf-address: "udp://localhost:12201"
+        #         tag: pgmigrator

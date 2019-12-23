@@ -1,0 +1,20 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+services:
+  pgadmin4:
+    image: dpage/pgadmin4:${PGADMIN4}
+    container_name: kbs-pgadmin4
+    restart: always
+    ports:
+      - "8402:80"
+    environment:
+        PGADMIN_DEFAULT_EMAIL: 'pgadmin4@local.com'
+        PGADMIN_DEFAULT_PASSWORD: 'pgadmin4'
+    networks:
+        default:
+            aliases:
+                - kbs-pgadmin4

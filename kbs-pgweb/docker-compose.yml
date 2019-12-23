@@ -1,0 +1,40 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+services:
+    pgweb:
+        image: kylinsystems/kbs-pgweb:${KBS_TAG}
+        container_name: kbs-pgweb
+        restart: always
+        build: 
+            context: .
+            dockerfile: Pgweb.Dockerfile
+        environment:
+            LISTEN_PORT: 8080
+            PG_HOST_NAME: kbs-pgserver
+            PG_HOST_PORT: 5432
+            PG_DB: idempiere_db
+            PG_USER: kbs_read_only
+            PG_PASSWORD: read_only_pass
+            PGWEB_AUTH_USER: pgweb
+            PGWEB_AUTH_PASS: pgweb
+        ports:
+            - 8401:8080
+        networks:
+            default:
+                aliases:
+                    - kbs-pgweb
+        # labels:
+        #     - "traefik.enable=true"
+        #     - "traefik.port=8080"
+        #     - "traefik.docker.network=kbs_network"
+        #     - "traefik.http.routers.pgweb.rule=PathPrefix(`/pgweb`)"
+        #     - "traefik.http.routers.pgweb.entrypoints=http"
+        # logging:
+        #     driver: "gelf"
+        #     options:
+        #         gelf-address: "udp://localhost:12201"
+        #         tag: pgweb                    

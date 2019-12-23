@@ -1,0 +1,30 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+services:
+    backupper:
+        image: kylinsystems/kbs-pgbackupper:${KBS_TAG}
+        container_name: kbs-pgbackupper
+        build:
+            context: .
+            dockerfile: Pgbackupper.Dockerfile
+        restart: always
+        volumes:
+            - "./archives:/data"
+        environment:
+            BACKUP_NAME_1: backup_db
+            SCHEDULE_1: '*/5 * * * *'
+            BACKUP_DB_HOST_1: 'kbs-pgserver'
+            BACKUP_DB_PORT_1: '5432'
+            BACKUP_DB_NAME_1: 'idempiere_db'
+            BACKUP_DB_USER_1: 'kbs_read_only'
+            BACKUP_DB_PASSWORD_1: 'read_only_pass'
+            BACKUP_OPTIONS_1: '-C --compress=9'
+            BACKUP_DIR_1: '/data/backup_db'          
+        networks:
+            default:
+                aliases:
+                    - kbs-backupper

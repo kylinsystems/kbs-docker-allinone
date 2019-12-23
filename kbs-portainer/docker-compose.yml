@@ -1,0 +1,35 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+volumes:
+  kbs_portainer_data:
+    external: true
+
+services:
+  portainer:
+    image: portainer/portainer:${PORTAINER_TAG}
+    container_name: kbs-portainer
+    restart: always
+    ports:
+      - "8101:9000"
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - kbs_portainer_data:/data
+    networks:
+        default:
+            aliases:
+                - kbs-portainer
+    # labels:
+    #     - "traefik.port=9000"
+    #     - "traefik.enable=true"
+    #     - "traefik.docker.network=kbs_network"
+    #     - "traefik.http.middlewares.portainer-redirect.redirectregex.regex=^(.*)/portainer$$"
+    #     - "traefik.http.middlewares.portainer-redirect.redirectregex.replacement=$$1/portainer/"
+    #     - "traefik.http.middlewares.portainer-replacepath.replacepathregex.regex=^/portainer/(.*)"
+    #     - "traefik.http.middlewares.portainer-replacepath.replacepathregex.replacement=/$$1"
+    #     - "traefik.http.routers.portainer.rule=PathPrefix(`/portainer`)"
+    #     - "traefik.http.routers.portainer.entrypoints=http"

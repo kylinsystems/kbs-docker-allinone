@@ -1,0 +1,26 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+services:
+    # PG Database Seed
+    pgseed:
+        image: kylinsystems/kbs-pgseed:${KBS_TAG}
+        container_name: kbs-pgseed
+        restart: always
+        build:
+            context: .
+            dockerfile: Pgseed.Dockerfile
+        ports:
+            - 6432:5432
+        networks:
+            default:
+                aliases:
+                    - kbs-pgseed
+        # logging:
+        #     driver: "gelf"
+        #     options:
+        #         gelf-address: "udp://localhost:12201"
+        #         tag: pgseed

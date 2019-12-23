@@ -1,0 +1,3 @@
+How To Setup Your SSL
+1) Copy your keystore file here. (to replace of app-demo-keystore)
+2) Replace the password and certAlias values in jetty-ssl-context.xml
