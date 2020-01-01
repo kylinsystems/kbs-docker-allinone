@@ -10,11 +10,11 @@ volumes:
 
 services:
   portainer:
-    image: portainer/portainer:${PORTAINER_TAG}
+    image: portainer/portainer:1.22.2
     container_name: kbs-portainer
     restart: always
     ports:
-      - "8101:9000"
+      - ${PORT_PORTAINER}:9000
     command: -H unix:///var/run/docker.sock
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock

@@ -10,12 +10,12 @@ services:
         container_name: kbs-server
         restart: always
         environment:
-            IDEMPIERE_APP_DEBUG: "true"
+            KBS_DEBUG: ${KBS_DEBUG}
         build:
             context: .
             dockerfile: Server.Eclipse.Dockerfile
         ports:
-            - 8080:8080
+            - ${PORT_KBS}:8080
             - 8443:8443
             - 4554:4554 # debug
         networks:

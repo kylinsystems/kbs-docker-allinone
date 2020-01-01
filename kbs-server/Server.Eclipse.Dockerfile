@@ -67,6 +67,7 @@ RUN rm /tmp/app/${IDEMPIERE_FILE}
 # Setup Environment for idempiere-server
 ## Root Home
 RUN mv /tmp/app/idempiere.properties ${IDEMPIERE_HOME}/idempiere.properties
+RUN mv /tmp/app/home.properties ${IDEMPIERE_HOME}/home.properties
 RUN mv /tmp/app/eclipse/hazelcast.xml ${IDEMPIERE_HOME}/hazelcast.xml
 RUN mv /tmp/app/eclipse/kbs-server.sh ${IDEMPIERE_HOME}/kbs-server.sh
 ## Jetty Home

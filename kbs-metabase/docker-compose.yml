@@ -1,0 +1,17 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+services:
+  metabase:
+    image: metabase/metabase:v0.33.0
+    container_name: kbs-metabase
+    restart: unless-stopped
+    ports:
+        - 8601:3000
+    networks:
+        default:
+            aliases:
+                - kbs-metabase

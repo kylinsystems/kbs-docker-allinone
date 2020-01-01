@@ -15,12 +15,12 @@ if [ "$1" = "debug" ]; then
   DEBUG="-agentlib:jdwp=transport=dt_socket,address=*:4554,server=y,suspend=n"
 fi
 
-if [ "$IDEMPIERE_APP_DEBUG" = "true" ]; then
+if [ "$KBS_DEBUG" = "true" ]; then
   DEBUG="-agentlib:jdwp=transport=dt_socket,address=*:4554,server=y,suspend=n"
 fi
 
 echo ===================================
-echo Starting iDempiere Server
+echo Starting KBS iDempiere Server
 echo ===================================
 
 # if don't set from service get default value

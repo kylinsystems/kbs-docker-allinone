@@ -14,10 +14,10 @@ docker-compose -f kbs-pgwatch/docker-compose.yml down -v
 docker-compose -f kbs-pgbackupper/docker-compose.yml down -v
 docker-compose -f kbs-pgadmin4/docker-compose.yml down -v
 docker-compose -f kbs-pgweb/docker-compose.yml down -v
-docker-compose -f kbs-pgsingle/docker-compose.yml down -v
+docker-compose -f kbs-metabase/docker-compose.yml down -v
 docker-compose -f kbs-monitoring/docker-compose.yml down -v
+docker-compose -f kbs-pgsingle/docker-compose.yml down -v
 docker-compose -f kbs-portainer/docker-compose.yml down -v
-docker-compose -f kbs-traefik/docker-compose.yml down -v
 docker-compose -f kbs-haproxy/docker-compose.yml down -v
 docker-compose -f kbs-ldap/docker-compose.yml down -v
 

@@ -13,8 +13,14 @@ services:
         build:
             context: .
             dockerfile: Pgseed.Dockerfile
+        environment:
+            KBS_DB_NAME: ${KBS_DB_NAME}
+            KBS_DB_USER: ${KBS_DB_USER}
+            KBS_DB_PASS: ${KBS_DB_PASS}
+            KBS_DB_USERRO: ${KBS_DB_USERRO}
+            KBS_DB_PASSRO: ${KBS_DB_PASSRO}
         ports:
-            - 6432:5432
+            - ${PORT_PGSEED}:5432
         networks:
             default:
                 aliases:

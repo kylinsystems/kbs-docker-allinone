@@ -1,0 +1,122 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+volumes:
+    prometheus_data:
+        external: 
+            name : kbs_prometheus_data
+    grafana_data:
+        external: 
+            name : kbs_grafana_data
+
+
+services:
+
+################################################################
+# Prometheus 
+#  - runs on manager node
+################################################################
+    prometheus:
+        image: prom/prometheus:v2.15.1
+        restart: always
+        volumes:
+            - ./prometheus/:/etc/prometheus/
+            - prometheus_data:/prometheus
+        command:
+            - '--config.file=/etc/prometheus/prometheus.yml'
+            - '--storage.tsdb.path=/prometheus'
+            - '--storage.tsdb.retention=${PROMETHEUS_RETENTION:-24h}'
+        ports:
+            - "${PORT_PROM_PROMETHEUS}:9090"
+        networks:
+            default:
+                aliases:
+                    - kbs-prometheus
+
+
+    alertmanager:
+        image: prom/alertmanager:v0.20.0
+        restart: always
+        ports:
+            - ${PORT_PROM_ALERTMANAGER}:9093
+        networks:
+            default:
+                aliases:
+                    - kbs-alertmanager
+        volumes:
+            - "./alertmanager/:/etc/alertmanager/"
+        command:
+            - '--config.file=/etc/alertmanager/config.yml'
+            - '--storage.path=/alertmanager'
+
+
+################################################################
+# The promethes node-exporter 
+# For each node a separte service need to be added 
+################################################################
+# START NODE-EXPORTERS.....
+    node-exporter:
+        image: prom/node-exporter:v0.18.1
+        restart: always
+        volumes:
+            - /proc:/host/proc:ro
+            - /sys:/host/sys:ro
+            - ./:/rootfs:ro # fix in windows 10 docker desktop by ./
+        command:
+            - '--path.procfs=/host/proc'
+            - '--path.sysfs=/host/sys'
+            - '--path.rootfs=/host'
+            - '--collector.filesystem.ignored-mount-points="^(/rootfs|/host|)/(sys|proc|dev|host|etc)($$|/)"'
+            - '--collector.filesystem.ignored-fs-types="^(sys|proc|auto|cgroup|devpts|ns|au|fuse\.lxc|mqueue)(fs|)$$"'
+        networks:
+            default:
+                aliases:
+                    - kbs-node-exporter
+
+
+################################################################
+# cAdvisor
+#   - runs on every node
+################################################################
+# START CADVISORS.....
+    cadvisor:
+        image: google/cadvisor:v0.33.0
+        restart: always
+        volumes:
+            - ./:/rootfs:ro # fix in windows 10 docker desktop by ./
+            - /var/run:/var/run:rw
+            - /sys:/sys:ro
+            - /var/lib/docker/:/var/lib/docker:ro
+        networks:
+            default:
+                aliases:
+                    - kbs-cadvisor
+
+
+################################################################
+# Grafana
+#  - runs on manager node
+################################################################
+    grafana:
+        image: grafana/grafana:6.5.2
+        restart: always
+        depends_on:
+            - prometheus
+        #environment:
+        #  GF_SMTP_ENABLED: "true"
+        #  GF_SMTP_HOST: "mailgateway:25"
+        #  GF_SMTP_FROM_ADDRESS: "alert@myhost.com"
+        volumes:
+            - grafana_data:/var/lib/grafana
+            - ./grafana/provisioning/:/etc/grafana/provisioning/
+        env_file:
+            - ./grafana/config.monitoring
+        ports:
+            - "${PORT_GRAFANA}:3000"
+        networks:
+            default:
+                aliases:
+                    - kbs-grafana

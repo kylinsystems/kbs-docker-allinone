@@ -14,7 +14,7 @@ services:
             context: .
             dockerfile: Pgsingle.Dockerfile
         ports:
-            - 5432:5432
+            - ${PORT_PGSERVER}:5432
         networks:
             default:
                 aliases:

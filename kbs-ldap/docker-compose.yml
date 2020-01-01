@@ -10,7 +10,7 @@ services:
 # OpenLDAP 
 ################################################################
     openldap:
-        image: osixia/openldap:${OPENLDAP_TAG}
+        image: osixia/openldap:1.3.0
         container_name: kbs-openldap
         restart: always
         environment:
@@ -46,7 +46,7 @@ services:
 # PhpLdapadmin 
 ################################################################
     phpldapadmin:
-        image: osixia/phpldapadmin:${PHPLDAPADMIN_TAG}
+        image: osixia/phpldapadmin:0.9.0
         container_name: kbs-phpldapadmin
         environment:
             PHPLDAPADMIN_LDAP_HOSTS: "openldap"
@@ -54,7 +54,7 @@ services:
             PHPLDAPADMIN_HTTPS: "false"
             PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
         ports:
-            - "8501:80"
+            - "${PORT_PHPLDAPADMIN}:80"
         networks:
             default:
                 aliases:
@@ -72,7 +72,7 @@ services:
             - ./lam/config:/etc/ldap-account-manager
             # - ./lam/data:/var/lib/ldap-account-manager
         ports:
-            - "8502:80"
+            - "${PORT_LAM}:80"
         depends_on:
             - openldap
         networks:

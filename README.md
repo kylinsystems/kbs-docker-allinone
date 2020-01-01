@@ -10,8 +10,8 @@ The all-in-one package to run KBS-iDempiere in Docker
     * `kbs-update.bat|sh` 
 
 ## Usage
-* KBS webui (SuperUser/System | port:8080) : 
-  * [http://localhost/app](http://localhost/app)
+* KBS Application Home (SuperUser/System | port:8080) : 
+  * [http://localhost](http://localhost)
 
 * KBS Server Monitor (SuperUser/System | port:8080) : 
   * [http://localhost/idempiereMonitor](http://localhost/idempiereMonitor)
@@ -35,7 +35,7 @@ The all-in-one package to run KBS-iDempiere in Docker
   * [http://localhost/pgweb](http://localhost/pgweb)
 
 * PGAdmin (pgadmin4@local.com/pgadmin4 | port:8402) : 
-  * [http://localhost/pgweb](http://localhost/pgweb)
+  * [http://localhost/pgadmin4](http://localhost/pgadmin4)
 
 * Phpldapadmin (cn=admin,dc=ldap,dc=example,dc=org/admin | port:8501)
   * [http://localhost/phpldapadmin](http://localhost/phpldapadmin)

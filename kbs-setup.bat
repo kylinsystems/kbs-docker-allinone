@@ -27,7 +27,7 @@ REM docker-compose -f kbs-ldap/docker-compose.yml build
 docker-compose -f kbs-haproxy/docker-compose.yml build
 REM docker-compose -f kbs-traefik/docker-compose.yml build
 docker-compose -f kbs-portainer/docker-compose.yml build
-REM docker-compose -f kbs-monitoring/docker-compose.yml build
+docker-compose -f kbs-monitoring/docker-compose.yml build
 docker-compose -f kbs-pgsingle/docker-compose.yml build
 docker-compose -f kbs-pgseed/docker-compose.yml build
 docker-compose -f kbs-pgmigrator/docker-compose.yml build
@@ -48,7 +48,7 @@ REM docker-compose -f kbs-traefik/docker-compose.yml up --force-recreate -d
 
 docker-compose -f kbs-portainer/docker-compose.yml up --force-recreate -d
 
-REM docker-compose -f kbs-monitoring/docker-compose.yml up --force-recreate -d
+docker-compose -f kbs-monitoring/docker-compose.yml up --force-recreate -d
 
 docker-compose -f kbs-pgsingle/docker-compose.yml up --force-recreate -d
 ping -n 10 127.1 >nul
