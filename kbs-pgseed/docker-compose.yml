@@ -12,15 +12,23 @@ services:
         restart: always
         build:
             context: .
-            dockerfile: Pgseed.Dockerfile
         environment:
+            KBS_SEEDDB_HOST: ${KBS_SEEDDB_HOST}
+            KBS_SEEDDB_PORT: ${KBS_SEEDDB_PORT}
+            KBS_SEEDDB_NAME: ${KBS_SEEDDB_NAME}
+            KBS_SEEDDB_USER: ${KBS_SEEDDB_USER}
+            KBS_SEEDDB_PASS: ${KBS_SEEDDB_PASS}
+            KBS_DB_HOST: ${KBS_DB_HOST}
+            KBS_DB_PORT: ${KBS_DB_PORT}
             KBS_DB_NAME: ${KBS_DB_NAME}
             KBS_DB_USER: ${KBS_DB_USER}
             KBS_DB_PASS: ${KBS_DB_PASS}
             KBS_DB_USERRO: ${KBS_DB_USERRO}
             KBS_DB_PASSRO: ${KBS_DB_PASSRO}
+            KBS_DB_USER_PGWATCH: ${KBS_DB_USER_PGWATCH}
+            KBS_DB_PASS_PGWATCH: ${KBS_DB_PASS_PGWATCH}
         ports:
-            - ${PORT_PGSEED}:5432
+            - ${PORT_PGSEED}:${KBS_DB_PORT}
         networks:
             default:
                 aliases:

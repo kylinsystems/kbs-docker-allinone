@@ -23,9 +23,10 @@ REM ######################################################
 REM ######################################################
 REM Building images...
 REM ######################################################
-REM docker-compose -f kbs-ldap/docker-compose.yml build
+docker-compose -f kbs-logging/docker-compose.yml build
+docker-compose -f kbs-ldap/docker-compose.yml build
 docker-compose -f kbs-haproxy/docker-compose.yml build
-REM docker-compose -f kbs-traefik/docker-compose.yml build
+docker-compose -f kbs-traefik/docker-compose.yml build
 docker-compose -f kbs-portainer/docker-compose.yml build
 docker-compose -f kbs-monitoring/docker-compose.yml build
 docker-compose -f kbs-pgsingle/docker-compose.yml build
@@ -34,17 +35,20 @@ docker-compose -f kbs-pgmigrator/docker-compose.yml build
 docker-compose -f kbs-pgweb/docker-compose.yml build
 docker-compose -f kbs-pgadmin4/docker-compose.yml build
 docker-compose -f kbs-pgbackupper/docker-compose.yml build
-REM docker-compose -f kbs-pgwatch/docker-compose.yml build
-docker-compose -f kbs-server/docker-compose.yml build
+docker-compose -f kbs-pgwatch/docker-compose.yml build
+docker-compose -f kbs-metabase/docker-compose.yml build
+REM docker-compose -f kbs-server/docker-compose.yml build
 
 REM ######################################################
 REM Starting...
 REM ######################################################
-REM docker-compose -f kbs-ldap/docker-compose.yml up --force-recreate -d
+REM docker-compose -f kbs-logging/docker-compose.yml up --force-recreate -d
+
+docker-compose -f kbs-ldap/docker-compose.yml up --force-recreate -d
 
 REM ###### Proxy
 docker-compose -f kbs-haproxy/docker-compose.yml up --force-recreate -d
-REM docker-compose -f kbs-traefik/docker-compose.yml up --force-recreate -d
+docker-compose -f kbs-traefik/docker-compose.yml up --force-recreate -d
 
 docker-compose -f kbs-portainer/docker-compose.yml up --force-recreate -d
 
@@ -65,9 +69,11 @@ docker-compose -f kbs-pgadmin4/docker-compose.yml up --force-recreate -d
 
 docker-compose -f kbs-pgbackupper/docker-compose.yml up --force-recreate -d
 
-REM docker-compose -f kbs-pgwatch/docker-compose.yml up --force-recreate -d
+docker-compose -f kbs-pgwatch/docker-compose.yml up --force-recreate -d
 
-docker-compose -f kbs-server/docker-compose.yml up --force-recreate -d
+docker-compose -f kbs-metabase/docker-compose.yml up --force-recreate -d
+
+REM docker-compose -f kbs-server/docker-compose.yml up --force-recreate -d
 REM ###### waiting 60s to complete start kbs-server
 ping -n 60 127.1 >nul
 

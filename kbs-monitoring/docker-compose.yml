@@ -101,7 +101,7 @@ services:
 #  - runs on manager node
 ################################################################
     grafana:
-        image: grafana/grafana:6.5.2
+        image: grafana/grafana:6.5.3
         restart: always
         depends_on:
             - prometheus
@@ -120,3 +120,9 @@ services:
             default:
                 aliases:
                     - kbs-grafana
+        labels:
+            - "traefik.enable=true"
+            - "traefik.port=3000"
+            - "traefik.docker.network=kbs_network"
+            - "traefik.http.routers.monitoring.rule=PathPrefix(`/grafana`)"
+            - "traefik.http.routers.monitoring.entrypoints=http"

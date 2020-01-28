@@ -10,7 +10,17 @@ services:
         container_name: kbs-pgmigrator
         build:
             context: .
-            dockerfile: Pgmigrator.Dockerfile
+        environment:
+            KBS_SEEDDB_HOST: ${KBS_SEEDDB_HOST}
+            KBS_SEEDDB_PORT: ${KBS_SEEDDB_PORT}
+            KBS_SEEDDB_NAME: ${KBS_SEEDDB_NAME}
+            KBS_SEEDDB_USER: ${KBS_SEEDDB_USER}
+            KBS_SEEDDB_PASS: ${KBS_SEEDDB_PASS}
+            KBS_DB_HOST: ${KBS_DB_HOST}
+            KBS_DB_PORT: ${KBS_DB_PORT}
+            KBS_DB_NAME: ${KBS_DB_NAME}
+            KBS_DB_USER: ${KBS_DB_USER}
+            KBS_DB_PASS: ${KBS_DB_PASS}
         networks:
             kbs_network:
                 aliases:

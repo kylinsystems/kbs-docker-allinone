@@ -23,13 +23,21 @@ services:
         default:
             aliases:
                 - kbs-portainer
-    # labels:
+    # labels: # NOT WORKING!!! ###
     #     - "traefik.port=9000"
     #     - "traefik.enable=true"
     #     - "traefik.docker.network=kbs_network"
-    #     - "traefik.http.middlewares.portainer-redirect.redirectregex.regex=^(.*)/portainer$$"
-    #     - "traefik.http.middlewares.portainer-redirect.redirectregex.replacement=$$1/portainer/"
-    #     - "traefik.http.middlewares.portainer-replacepath.replacepathregex.regex=^/portainer/(.*)"
-    #     - "traefik.http.middlewares.portainer-replacepath.replacepathregex.replacement=/$$1"
+    #     - "traefik.http.middlewares.portainer-strip.stripprefix.prefixes=/portainer"
     #     - "traefik.http.routers.portainer.rule=PathPrefix(`/portainer`)"
+    #     - "traefik.http.routers.portainer.middlewares=portainer-strip@docker"
     #     - "traefik.http.routers.portainer.entrypoints=http"
+
+        # - "traefik.port=9000"
+        # - "traefik.enable=true"
+        # - "traefik.docker.network=kbs_network"
+        # - "traefik.http.middlewares.portainer-redirect.redirectregex.regex=^(.*)/portainer$$"
+        # - "traefik.http.middlewares.portainer-redirect.redirectregex.replacement=$$1/portainer/"
+        # - "traefik.http.middlewares.portainer-replacepath.replacepathregex.regex=^/portainer/(.*)"
+        # - "traefik.http.middlewares.portainer-replacepath.replacepathregex.replacement=/$$1"
+        # - "traefik.http.routers.portainer.rule=PathPrefix(`/portainer`)"
+        # - "traefik.http.routers.portainer.entrypoints=http"

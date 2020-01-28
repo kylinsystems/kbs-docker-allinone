@@ -44,8 +44,14 @@ The all-in-one package to run KBS-iDempiere in Docker
   * [http://localhost/lam](http://localhost/lam)
 
 * PGWatch
-  * Grafana Dashboard (admin/pgwatch2admin) [http://localhost:3000/](http://localhost:3000)
-  * Admin Interface [http://localhost:3080/dbs](http://localhost:3080/dbs)
+  * Grafana Dashboard (admin/pgwatch2admin) [http://localhost/pgwatch/](http://localhost/pgwatch)
+  * Admin Web [http://localhost:8420/dbs](http://localhost:8420/dbs)
+
+* Metabase
+  * [http://localhost/metabase](http://localhost/metabase)
+
+* Graylog
+  * [http://localhost/graylog](http://localhost/graylog)
 
 * Hawtio Console (karaf/karaf) :
   * [http://localhost/hawtio](http://localhost/hawtio)

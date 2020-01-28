@@ -27,7 +27,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget unzip pwgen expect su
 # Setup Zulu Openjdk (manual mode)
 # Install unzip and other useful packages
 ENV JVM_DIR /usr/lib/jvm
-ENV ZULUOPENJDK_FILE zulu11.35.13-ca-jdk11.0.5-linux_x64
+ENV ZULUOPENJDK_FILE zulu11.37.17-ca-jdk11.0.6-linux_x64
 RUN mkdir ${JVM_DIR}
 RUN wget https://cdn.azul.com/zulu/bin/${ZULUOPENJDK_FILE}.tar.gz \
 	&& tar xfvz ${ZULUOPENJDK_FILE}.tar.gz --directory ${JVM_DIR} \

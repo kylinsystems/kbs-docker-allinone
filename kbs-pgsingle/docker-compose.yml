@@ -12,9 +12,8 @@ services:
         restart: always
         build:
             context: .
-            dockerfile: Pgsingle.Dockerfile
         ports:
-            - ${PORT_PGSERVER}:5432
+            - ${PORT_PGSERVER}:${KBS_DB_PORT}
         networks:
             default:
                 aliases:

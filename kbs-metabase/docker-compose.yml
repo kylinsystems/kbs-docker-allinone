@@ -6,11 +6,11 @@ networks:
 
 services:
   metabase:
-    image: metabase/metabase:v0.33.0
+    image: metabase/metabase:v0.34.1
     container_name: kbs-metabase
     restart: unless-stopped
     ports:
-        - 8601:3000
+        - ${PORT_METABASE}:3000
     networks:
         default:
             aliases:
