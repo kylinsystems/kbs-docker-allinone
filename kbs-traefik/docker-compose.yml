@@ -1,0 +1,44 @@
+version: '3'
+networks:
+    default:
+        external:
+            name: kbs_network
+
+services:
+    traefik:
+        image: traefik:v2.1.3
+        container_name: kbs-traefik
+        restart: always
+        command:
+            # - "--log.level=DEBUG"
+            # - "--accesslog=true"
+            - "--api.insecure=true"
+            - "--providers.docker=true"
+            - "--providers.docker.network=kbs_network"
+            - "--providers.docker.exposedbydefault=false"
+        volumes:
+            # So that Traefik can listen to the Docker events
+            - "/var/run/docker.sock:/var/run/docker.sock:ro"
+        ports:
+            # The HTTP port
+            - "6060:80"
+            # The HTTPS port
+            - "6443:443"
+            # The Web UI (enabled by --api.insecure=true)
+            - "6161:8080"
+        networks:
+            default:
+                aliases:
+                    - kbs-traefik
+
+    # whoami:
+    #     # http://localhost:6060/whoami
+    #     image: "containous/whoami"
+    #     container_name: "whoami-service"
+    #     ports:
+    #         - "6262:80"
+    #     labels:
+    #         - "traefik.enable=true"
+    #         - "traefik.docker.network=kbs_network"
+    #         - "traefik.http.routers.whoami.rule=Path(`/whoami`)"
+    #         - "traefik.http.routers.whoami.entrypoints=http"
