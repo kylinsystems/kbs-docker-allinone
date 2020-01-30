@@ -37,7 +37,7 @@ docker-compose -f kbs-pgadmin4/docker-compose.yml build
 docker-compose -f kbs-pgbackupper/docker-compose.yml build
 docker-compose -f kbs-pgwatch/docker-compose.yml build
 docker-compose -f kbs-metabase/docker-compose.yml build
-REM docker-compose -f kbs-server/docker-compose.yml build
+docker-compose -f kbs-server/docker-compose.yml build
 
 REM ######################################################
 REM Starting...
@@ -73,7 +73,7 @@ docker-compose -f kbs-pgwatch/docker-compose.yml up --force-recreate -d
 
 docker-compose -f kbs-metabase/docker-compose.yml up --force-recreate -d
 
-REM docker-compose -f kbs-server/docker-compose.yml up --force-recreate -d
+docker-compose -f kbs-server/docker-compose.yml up --force-recreate -d
 REM ###### waiting 60s to complete start kbs-server
 ping -n 60 127.1 >nul
 
