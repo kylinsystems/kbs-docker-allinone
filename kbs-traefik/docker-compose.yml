@@ -10,14 +10,6 @@ services:
         container_name: kbs-traefik
         restart: always
         command: traefik --configFile /etc/traefik.toml
-        # command:
-        #     # - "--log.level=DEBUG"
-        #     # - "--accesslog=true"
-        #     - "--api.insecure=true"
-        #     - "--providers.docker=true"
-        #     - "--providers.docker.network=kbs_network"
-        #     - "--providers.docker.exposedbydefault=false"
-        #     - "--configFile=/etc/traefik.toml"
         volumes:
             # So that Traefik can listen to the Docker events
             - "/var/run/docker.sock:/var/run/docker.sock:ro"
