@@ -122,7 +122,6 @@ services:
                     - kbs-grafana
         labels:
             - "traefik.enable=true"
-            - "traefik.port=3000"
-            - "traefik.docker.network=kbs_network"
+            - "traefik.http.services.monitoring.loadbalancer.server.port=3000"
             - "traefik.http.routers.monitoring.rule=PathPrefix(`/grafana`)"
             - "traefik.http.routers.monitoring.entrypoints=http"

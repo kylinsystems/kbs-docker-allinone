@@ -26,10 +26,6 @@
 
   [entryPoints.https]
     address = ":443"
-      [entryPoints.https.tls]
-        [[entryPoints.https.tls.certificates]]
-          CertFile = "/run/secrets/cert.pem"
-          KeyFile = "/run/secrets/key.pem"
 
 ################################################################
 # Traefik logs configuration
@@ -47,7 +43,7 @@
   # Optional
   # Default: "ERROR"
   #
-  # level = "DEBUG"
+  level = "WARN"
 
   # Sets the filepath for the traefik log. If not specified, stdout will be used.
   # Intermediate directories are created if necessary.
@@ -111,6 +107,8 @@
   # Default: true
   #
   # dashboard = false
+  dashboard = true
+  insecure = true
 
 ################################################################
 # Ping configuration
@@ -152,4 +150,14 @@
   # Optional
   # Default: true
   #
-  exposedByDefault = true
+  watch = true
+  exposedByDefault = false
+  endpoint = "unix:///var/run/docker.sock"
+  swarmMode = false
+  useBindPortIP = false
+  network = "kbs-traefik"
+
+[providers.file]
+  watch = true
+  directory = "/etc/traefik/config"
+  debugLogGeneratedTemplate = true

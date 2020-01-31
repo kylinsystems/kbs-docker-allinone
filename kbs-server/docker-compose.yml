@@ -22,12 +22,15 @@ services:
             default:
                 aliases:
                     - kbs-server
-        # labels:
-        #     - "traefik.enable=true"
-        #     - "traefik.port=8080"
-        #     - "traefik.docker.network=kbs_network"
-        #     - "traefik.http.routers.kbs_server.rule=PathPrefix(`/app`)"
-        #     - "traefik.http.routers.kbs_server.entrypoints=http"
+        healthcheck:
+            test: ["CMD-SHELL", "curl -fs http://localhost:8080/app || exit 1"]
+            interval: 5s
+            timeout: 3s
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.services.kbs_server.loadbalancer.server.port=8080"
+            - "traefik.http.routers.kbs_server.rule=PathPrefix(`/app`) || Path(`/`)"
+            - "traefik.http.routers.kbs_server.entrypoints=http"
 
     # kbs_server:
     #     image: kylinsystems/kbs-server-karaf:${KBS_TAG}

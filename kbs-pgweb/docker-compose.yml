@@ -28,8 +28,7 @@ services:
                     - kbs-pgweb
         labels:
             - "traefik.enable=true"
-            - "traefik.port=8080"
-            - "traefik.docker.network=kbs_network"
+            - "traefik.http.services.pgweb.loadbalancer.server.port=8080"
             - "traefik.http.routers.pgweb.rule=PathPrefix(`/pgweb`)"
             - "traefik.http.routers.pgweb.entrypoints=http"
         # logging:
