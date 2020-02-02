@@ -53,5 +53,8 @@ RUN chown postgres.postgres /var/run/postgresql/$PG_MAJOR-main.pg_stat_tmp -R
 
 EXPOSE 5432
 
+# Health Check
+HEALTHCHECK --interval=10s --timeout=3s --retries=6 CMD pg_isready -U postgres
+
 ### Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]

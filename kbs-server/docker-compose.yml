@@ -22,14 +22,10 @@ services:
             default:
                 aliases:
                     - kbs-server
-        healthcheck:
-            test: ["CMD-SHELL", "curl -fs http://localhost:8080/app || exit 1"]
-            interval: 5s
-            timeout: 3s
         labels:
             - "traefik.enable=true"
             - "traefik.http.services.kbs_server.loadbalancer.server.port=8080"
-            - "traefik.http.routers.kbs_server.rule=PathPrefix(`/app`) || Path(`/`)"
+            - "traefik.http.routers.kbs_server.rule=PathPrefix(`/app`) || Path(`/`) || PathPrefix(`/;jsessionid`) || PathPrefix(`/osgi/system/console`)"
             - "traefik.http.routers.kbs_server.entrypoints=http"
 
     # kbs_server:

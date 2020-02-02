@@ -101,5 +101,8 @@ RUN chmod +x ${IDEMPIERE_HOME}/kbs-server.sh
 RUN mkdir /etc/service/kbs-server
 RUN ln -s ${IDEMPIERE_HOME}/kbs-server.sh /etc/service/kbs-server/run
 
+# Health Check
+HEALTHCHECK --interval=5s --timeout=3s --retries=12 CMD curl --silent -fs http://localhost:8080/app || exit 1
+
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]

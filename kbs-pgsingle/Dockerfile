@@ -49,5 +49,8 @@ ENV DATA_DIR /data
 
 EXPOSE 5432
 
+# Health Check
+HEALTHCHECK --interval=10s --timeout=3s --retries=6 CMD pg_isready -U postgres
+
 ### Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
