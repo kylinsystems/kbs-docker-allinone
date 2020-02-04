@@ -24,6 +24,7 @@ RUN sed -i -e"s/data_directory =.*$/data_directory = '\/data'/" /etc/postgresql/
 RUN sed -i -e"s/^#listen_addresses =.*$/listen_addresses = '*'/" /etc/postgresql/$PG_MAJOR/main/postgresql.conf
 ### Add pg_stat_statements
 RUN sed -i -e"s/^#shared_preload_libraries =.*$/shared_preload_libraries = 'pg_stat_statements'/" /etc/postgresql/$PG_MAJOR/main/postgresql.conf
+### Allow connections from anyone
 RUN echo "host    all    all    0.0.0.0/0    md5" >> /etc/postgresql/$PG_MAJOR/main/pg_hba.conf
 
 ### Install other tools.
@@ -50,7 +51,7 @@ ENV DATA_DIR /data
 EXPOSE 5432
 
 # Health Check
-HEALTHCHECK --interval=10s --timeout=3s --retries=6 CMD pg_isready -U postgres
+# HEALTHCHECK --interval=10s --timeout=3s --retries=6 CMD pg_isready -U postgres
 
 ### Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
