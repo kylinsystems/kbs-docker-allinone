@@ -1,9 +1,8 @@
 #!/bin/sh
 #
-# Author: Carlos Ruiz - globalqss
 # Script to synchronize the database for with latest migration scripts
 
-echo	Synchronize iDempiere Database
+echo Synchronize iDempiere Database
 
 echo Upgrading database $1@$ADEMPIERE_DB_NAME
 

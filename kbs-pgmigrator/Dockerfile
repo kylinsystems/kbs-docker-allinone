@@ -17,7 +17,7 @@ RUN apt-get update && \
 		DEBIAN_FRONTEND=noninteractive \
 		apt-get install -y --force-yes postgresql-client-$PG_MAJOR
 
-### Copy db migration folder
+### Copy database migration folder
 RUN mkdir /opt/idempiere-app/
 COPY db /opt/idempiere-app/db
 

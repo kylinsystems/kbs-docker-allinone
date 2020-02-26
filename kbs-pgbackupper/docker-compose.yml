@@ -19,8 +19,8 @@ services:
             BACKUP_DB_HOST_1: ${KBS_DB_HOST}
             BACKUP_DB_PORT_1: ${KBS_DB_PORT}
             BACKUP_DB_NAME_1: ${KBS_DB_NAME}
-            BACKUP_DB_USER_1: ${KBS_DB_USERRO}
-            BACKUP_DB_PASSWORD_1: ${KBS_DB_PASSRO}
+            BACKUP_DB_USER_1: ${KBS_DB_USER_RO}
+            BACKUP_DB_PASSWORD_1: ${KBS_DB_PASS_RO}
             BACKUP_OPTIONS_1: '-C --compress=9'
             BACKUP_DIR_1: '/data/backup_db'
         networks:

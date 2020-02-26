@@ -16,6 +16,7 @@ docker-compose -f kbs-pgweb/docker-compose.yml down -v
 docker-compose -f kbs-pgmigrator/docker-compose.yml down -v
 docker-compose -f kbs-pgseed/docker-compose.yml down -v
 docker-compose -f kbs-pgsingle/docker-compose.yml down -v
+docker-compose -f kbs-pgcluster/docker-compose.yml down -v
 docker-compose -f kbs-monitoring/docker-compose.yml down -v
 docker-compose -f kbs-portainer/docker-compose.yml down -v
 docker-compose -f kbs-traefik/docker-compose.yml down -v
@@ -32,6 +33,10 @@ REM ######################################################
 docker volume rm kbs_portainer_data
 docker volume rm kbs_prometheus_data
 docker volume rm kbs_grafana_data
+docker volume rm kbs_pgmaster
+docker volume rm kbs_pgslave1
+docker volume rm kbs_pgslave3
+docker volume rm kbs_pgbackup
 
 REM ###### Prune all unused volumes 
 docker volume prune -f
@@ -39,6 +44,7 @@ docker volume prune -f
 REM ######################################################
 REM Removing network...
 REM ######################################################
+docker network rm kbs_network_pgcluster
 docker network rm kbs_network
 
 REM ######################################################

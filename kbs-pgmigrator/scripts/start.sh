@@ -16,5 +16,3 @@ pre_start_action
 
 post_start_action
 
-
-# Migration done

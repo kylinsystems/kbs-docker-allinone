@@ -1,43 +1,33 @@
 #!/bin/sh
 
-# Author Carlos Ruiz
 if [ $IDEMPIERE_HOME ]; then
   cd $IDEMPIERE_HOME/utils
 fi
 . ./myEnvironment.sh
 
-echo "===================================="
-echo "--Start SyncDB to Seed Instance--"
-ADEMPIERE_DB_SERVER=$SEED_DB_SERVER
+ADEMPIERE_DB_SERVER=$DB_SERVER
 export ADEMPIERE_DB_SERVER
-ADEMPIERE_DB_PORT=$SEED_DB_PORT
+ADEMPIERE_DB_PORT=$DB_PORT
 export ADEMPIERE_DB_PORT
-ADEMPIERE_DB_NAME=$SEED_DB_NAME
-export ADEMPIERE_DB_NAME
-ADEMPIERE_DB_USER=$SEED_DB_USER
+ADEMPIERE_DB_USER=$DB_USER
 export ADEMPIERE_DB_USER
-ADEMPIERE_DB_PASSWORD=$SEED_DB_PASSWORD
+ADEMPIERE_DB_PASSWORD=$DB_PASS
 export ADEMPIERE_DB_PASSWORD
 
-echo 	Synchronize iDempiere Database - $IDEMPIERE_HOME \($ADEMPIERE_DB_NAME\)
+# echo "===================================="
+# echo "--Start SyncDB to Seed Database--"
 
-sh $ADEMPIERE_DB_PATH/SyncDB.sh "$ADEMPIERE_DB_USER" "$ADEMPIERE_DB_PASSWORD" "$ADEMPIERE_DB_PATH"
-echo "--Done : SyncDB to Seed Instance"
+# ADEMPIERE_DB_NAME=$SEED_DB_NAME
+# export ADEMPIERE_DB_NAME
+
+# sh $ADEMPIERE_DB_PATH/SyncDB.sh "$ADEMPIERE_DB_USER" "$ADEMPIERE_DB_PASSWORD" "$ADEMPIERE_DB_PATH"
+# echo "--Done : SyncDB to Seed Database--"
 
 echo "===================================="
-echo "--Start SyncDB to Target Instance--"
-ADEMPIERE_DB_SERVER=$TARGET_DB_SERVER
-export ADEMPIERE_DB_SERVER
-ADEMPIERE_DB_PORT=$TARGET_DB_PORT
-export ADEMPIERE_DB_PORT
-ADEMPIERE_DB_NAME=$TARGET_DB_NAME
-export ADEMPIERE_DB_NAME
-ADEMPIERE_DB_USER=$TARGET_DB_USER
-export ADEMPIERE_DB_USER
-ADEMPIERE_DB_PASSWORD=$TARGET_DB_PASSWORD
-export ADEMPIERE_DB_PASSWORD
+echo "--Start SyncDB to Target Database--"
 
-echo 	Synchronize iDempiere Database - $IDEMPIERE_HOME \($ADEMPIERE_DB_NAME\)
+ADEMPIERE_DB_NAME=$DB_NAME
+export ADEMPIERE_DB_NAME
 
 sh $ADEMPIERE_DB_PATH/SyncDB.sh "$ADEMPIERE_DB_USER" "$ADEMPIERE_DB_PASSWORD" "$ADEMPIERE_DB_PATH"
-echo "--Done : SyncDB to Target Instance"
+echo "--Done : SyncDB to Target Database--"

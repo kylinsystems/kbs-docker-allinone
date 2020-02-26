@@ -2,7 +2,7 @@ version: '3'
 networks:
     default:
         external:
-            name: kbs_network
+            name: kbs_network_pgcluster
 
 services:
     pgweb:
@@ -16,8 +16,8 @@ services:
             PG_HOST_NAME: ${KBS_DB_HOST}
             PG_HOST_PORT: ${KBS_DB_PORT}
             PG_DB: ${KBS_DB_NAME}
-            PG_USER: ${KBS_DB_USERRO}
-            PG_PASSWORD: ${KBS_DB_PASSRO}
+            PG_USER: ${KBS_DB_USER_RO}
+            PG_PASSWORD: ${KBS_DB_PASS_RO}
             PGWEB_AUTH_USER: pgweb
             PGWEB_AUTH_PASS: pgweb
         ports:
@@ -31,8 +31,3 @@ services:
             - "traefik.http.services.pgweb.loadbalancer.server.port=8080"
             - "traefik.http.routers.pgweb.rule=PathPrefix(`/pgweb`)"
             - "traefik.http.routers.pgweb.entrypoints=http"
-        # logging:
-        #     driver: "gelf"
-        #     options:
-        #         gelf-address: "udp://localhost:12201"
-        #         tag: pgweb                    

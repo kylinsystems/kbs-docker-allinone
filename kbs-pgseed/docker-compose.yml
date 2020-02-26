@@ -9,37 +9,20 @@ services:
     pgseed:
         image: kylinsystems/kbs-pgseed:${KBS_TAG}
         container_name: kbs-pgseed
-        restart: always
         build:
             context: .
         environment:
-            KBS_SEEDDB_HOST: ${KBS_SEEDDB_HOST}
-            KBS_SEEDDB_PORT: ${KBS_SEEDDB_PORT}
             KBS_SEEDDB_NAME: ${KBS_SEEDDB_NAME}
-            KBS_SEEDDB_USER: ${KBS_SEEDDB_USER}
-            KBS_SEEDDB_PASS: ${KBS_SEEDDB_PASS}
             KBS_DB_HOST: ${KBS_DB_HOST}
             KBS_DB_PORT: ${KBS_DB_PORT}
             KBS_DB_NAME: ${KBS_DB_NAME}
             KBS_DB_USER: ${KBS_DB_USER}
             KBS_DB_PASS: ${KBS_DB_PASS}
-            KBS_DB_USERRO: ${KBS_DB_USERRO}
-            KBS_DB_PASSRO: ${KBS_DB_PASSRO}
+            KBS_DB_USER_RO: ${KBS_DB_USER_RO}
+            KBS_DB_PASS_RO: ${KBS_DB_PASS_RO}
             KBS_DB_USER_PGWATCH: ${KBS_DB_USER_PGWATCH}
             KBS_DB_PASS_PGWATCH: ${KBS_DB_PASS_PGWATCH}
-        ports:
-            - ${PORT_PGSEED}:${KBS_DB_PORT}
-        # healthcheck:
-        #     test: ["CMD-SHELL", "pg_isready -U postgres"]
-        #     interval: 10s
-        #     timeout: 5s
-        #     retries: 10
         networks:
             default:
                 aliases:
                     - kbs-pgseed
-        # logging:
-        #     driver: "gelf"
-        #     options:
-        #         gelf-address: "udp://localhost:12201"
-        #         tag: pgseed

@@ -21,36 +21,34 @@ RUN echo "deb https://mirrors.huaweicloud.com/ubuntu/ bionic main restricted uni
 # RUN apt-get update
 # RUN EBIAN_FRONTEND=noninteractive apt-get install -y zulu-11
 
+# Install unzip and other useful packages
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget unzip pwgen expect sudo libfontconfig
 
-# Setup Zulu Openjdk (manual mode)
-# Install unzip and other useful packages
-ENV JVM_DIR /usr/lib/jvm
-ENV ZULUOPENJDK_FILE zulu11.37.17-ca-jdk11.0.6-linux_x64
-RUN mkdir ${JVM_DIR}
-RUN wget https://cdn.azul.com/zulu/bin/${ZULUOPENJDK_FILE}.tar.gz \
-	&& tar xfvz ${ZULUOPENJDK_FILE}.tar.gz --directory ${JVM_DIR} \
-	&& rm ${ZULUOPENJDK_FILE}.tar.gz
-ENV JAVA_HOME ${JVM_DIR}/${ZULUOPENJDK_FILE}
-ENV PATH $PATH:$JAVA_HOME/bin
-
-# Setup OpenJDK11 HOME (offline mode)
-# RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libfontconfig
-# ENV OPNEJDK11_VERSION 11.0.2
-# ENV OPENJDK11_FILE openjdk-${OPNEJDK11_VERSION}_linux-x64_bin.tar.gz
-# RUN mkdir /usr/lib/jvm
-# RUN tar xfvz /tmp/app/${OPENJDK11_FILE} --directory /usr/lib/jvm
-# RUN rm -f /tmp/app/${OPENJDK11_FILE}
-# ENV JAVA_HOME /usr/lib/jvm/jdk-${OPNEJDK11_VERSION}
+# Setup Zulu Openjdk (online mode)
+# ENV JVM_DIR /usr/lib/jvm
+# ENV ZULUOPENJDK_FILE zulu11.37.17-ca-jdk11.0.6-linux_x64
+# RUN mkdir ${JVM_DIR}
+# RUN wget https://cdn.azul.com/zulu/bin/${ZULUOPENJDK_FILE}.tar.gz \
+# 	&& tar xfvz ${ZULUOPENJDK_FILE}.tar.gz --directory ${JVM_DIR} \
+# 	&& rm ${ZULUOPENJDK_FILE}.tar.gz
+# ENV JAVA_HOME ${JVM_DIR}/${ZULUOPENJDK_FILE}
 # ENV PATH $PATH:$JAVA_HOME/bin
-
-# Java version
-RUN java -version
 
 
 # Add app stuff into Container
 ADD app /tmp/app
+
+# Setup Zulu Openjdk (offline mode)
+ENV JVM_DIR /usr/lib/jvm
+ENV ZULUOPENJDK_FILE zulu11.37.17-ca-jdk11.0.6-linux_x64
+RUN mkdir ${JVM_DIR}
+RUN tar xfvz /tmp/app/${ZULUOPENJDK_FILE}.tar.gz --directory ${JVM_DIR} 
+ENV JAVA_HOME ${JVM_DIR}/${ZULUOPENJDK_FILE}
+ENV PATH $PATH:$JAVA_HOME/bin
+
+# Java version
+RUN java -version
 
 # Setup IDEMPIERE_HOME (online mode)
 # ENV IDEMPIERE_HOME /opt/idempiere-server/

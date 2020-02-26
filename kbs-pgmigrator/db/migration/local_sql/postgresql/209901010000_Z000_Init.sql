@@ -40,22 +40,31 @@ update ad_sysconfig set value = 'kbs' where name = 'ZK_THEME';
 ---- Setup "Forgot My Password" 
 update ad_sysconfig set value = 'Y' where name = 'LOGIN_SHOW_RESETPASSWORD';
 
----- Disable 'Help' toolbar
-update ad_toolbarbutton set isactive = 'N' where ad_toolbarbutton_id = 200030 and componentname = 'Help';
+---- Toolbar Customization
+---- Window - Delete
+update ad_toolbarbutton set seqno = 15, isshowmore = 'N' where ad_toolbarbutton_id = 200033;
+---- Window - Refresh
+update ad_toolbarbutton set seqno = 55, isshowmore = 'N' where  ad_toolbarbutton_id = 200037;
+---- Window - Parent
+update ad_toolbarbutton set seqno = 64, isshowmore = 'N' where  ad_toolbarbutton_id = 200043;
+---- Window - Detail
+update ad_toolbarbutton set seqno = 66, isshowmore = 'N' where  ad_toolbarbutton_id = 200044;
+---- Window - Help
+update ad_toolbarbutton set seqno = 999 where ad_toolbarbutton_id = 200030;
 
 ---- Disable Accounting Processor
-UPDATE c_acctprocessor SET isactive = 'N';
+-- UPDATE c_acctprocessor SET isactive = 'N';
 ---- Disable Workflow Processor
-update ad_workflowprocessor set isactive = 'N';
+-- update ad_workflowprocessor set isactive = 'N';
 ---- Disable Request Processor
-update r_requestprocessor set isactive = 'N';
+-- update r_requestprocessor set isactive = 'N';
 ---- Disable Alert Processor
 ---- update ad_alertprocessor set isactive = 'N';
 
 ---- Disable All Alert Job
-update ad_alert set isactive = 'N';
+-- update ad_alert set isactive = 'N';
 ---- Disable All Scheduler Job
-update ad_scheduler set isactive = 'N';
+-- update ad_scheduler set isactive = 'N';
 
 ---- Setup AD_Language
 ---- disable es_CO
