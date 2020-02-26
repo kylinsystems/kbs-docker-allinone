@@ -4,9 +4,9 @@ networks:
         external:
             name: kbs_network
 
-volumes:
-  kbs_portainer_data:
-    external: true
+# volumes:
+#   kbs_portainer_data:
+#     external: true
 
 services:
   portainer:
@@ -18,7 +18,7 @@ services:
     command: -H unix:///var/run/docker.sock
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - kbs_portainer_data:/data
+      # - kbs_portainer_data:/data
     networks:
         default:
             aliases:

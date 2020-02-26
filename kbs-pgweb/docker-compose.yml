@@ -2,7 +2,7 @@ version: '3'
 networks:
     default:
         external:
-            name: kbs_network_pgcluster
+            name: kbs_network
 
 services:
     pgweb:

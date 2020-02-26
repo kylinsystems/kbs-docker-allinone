@@ -11,10 +11,9 @@ services:
         restart: always
         build: 
             context: .
-            dockerfile: Dockerfile
         volumes:
             # Mount local configuration
-            - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+            - ./haproxy.cfg:/etc/haproxy/haproxy.cfg
         cap_add:
             - NET_ADMIN
         ports:
