@@ -13,7 +13,7 @@ services:
         build:
             context: .
         ports:
-            - ${PORT_PGSERVER}:${KBS_DB_PORT}
+            - 5432:5432
         healthcheck:
             test: ["CMD-SHELL", "pg_isready -U postgres"]
             interval: 10s
@@ -23,9 +23,3 @@ services:
             default:
                 aliases:
                     - kbs-pgserver
-        # logging:
-        #     driver: "gelf"
-        #     options:
-        #         gelf-address: "udp://localhost:12201"
-        #         tag: pgserver
-        

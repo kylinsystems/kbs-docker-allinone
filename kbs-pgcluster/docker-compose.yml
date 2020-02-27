@@ -28,7 +28,7 @@ volumes:
 
 services:
     pgmaster:
-        image: kylinsystems/kbs-pgcluster-pgserver:${KBS_TAG}
+        image: kylinsystems/kbs-pgcluster-pginstance:${KBS_TAG}
         container_name: kbs-pgcluster-pgmaster
         restart: always
         build:
@@ -123,6 +123,9 @@ services:
                     - pgslave3
 #>>> Branch 2
     pgbackup:
+        image: kylinsystems/kbs-pgcluster-pgbackup:${KBS_TAG}
+        container_name: kbs-pgcluster-pgbackup
+        restart: always
         build:
             context: src
             dockerfile: Barman-2.4-Postgres-11.Dockerfile
@@ -159,7 +162,7 @@ services:
             CHECK_PASSWORD: ${KBS_DB_PASS}
             CHECK_PGCONNECT_TIMEOUT: 3 #timout for checking if primary node is healthy
             SSH_ENABLE: 1
-            DB_USERS: ${KBS_DB_USER}:${KBS_DB_PASS} # in format user:password[,user:password[...]]
+            DB_USERS: ${KBS_DB_USER}:${KBS_DB_PASS},${KBS_DB_USER_RO}:${KBS_DB_PASS_RO},${KBS_DB_USER_PGWATCH}:${KBS_DB_PASS_PGWATCH} # in format user:password[,user:password[...]]
             BACKENDS: "0:pgmaster:5432:1:/var/lib/postgresql/data:ALLOW_TO_FAILOVER,1:pgslave1::::,3:pgslave3::::" #,4:pgslaveDOES_NOT_EXIST::::
                       # in format num:host:port:weight:data_directory:flag[,...]
                       # defaults:
