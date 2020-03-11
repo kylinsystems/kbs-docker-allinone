@@ -1,13 +1,14 @@
 version: '3'
+
 networks:
     default:
         external:
-            name: kbs_network
+            name: kbs_core
 
 services:
   pgadmin4:
     image: dpage/pgadmin4:4.18
-    container_name: kbs-pgadmin4
+    container_name: kbs-pgadmin
     restart: always
     ports:
       - "${PORT_PGADMIN4}:80"

@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+
+
+<!-- =============================================================== -->
+<!-- Configure the Jetty Server                                      -->
+<!--                                                                 -->
+<!-- Documentation of this file format can be found at:              -->
+<!-- http://wiki.eclipse.org/Jetty/Reference/jetty.xml_syntax        -->
+<!-- =============================================================== -->
+
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+
+	<Call name="setAttribute">
+		<Arg>org.eclipse.jetty.server.Request.maxFormContentSize</Arg>
+		<Arg>1048576</Arg>
+	</Call>
+
+	<Set class="org.eclipse.jetty.util.resource.Resource" name="defaultUseCaches">false</Set>
+
+	<!-- =========================================================== -->
+	<!-- Server Thread Pool                                          -->
+	<!-- =========================================================== -->
+	<Get name="ThreadPool">
+		<Set name="minThreads">10</Set>
+		<Set name="maxThreads">200</Set>
+	</Get>
+
+	<!-- <Call name="addConnector">
+	<Arg>
+		<New class="org.eclipse.jetty.server.ssl.SslSelectChannelConnector">
+			<Arg>
+				<New class="org.eclipse.jetty.http.ssl.SslContextFactory">
+					<Set name="KeyStore">./etc/app-demo-keystore</Set>
+					<Set name="KeyStorePassword">P@ssw0rd</Set>
+					<Set name="KeyManagerPassword">P@ssw0rd</Set>
+					<Set name="TrustStore">./etc/app-demo-keystore</Set>
+					<Set name="TrustStorePassword">P@ssw0rd</Set>
+				</New>
+			</Arg>
+			<Set name="port">8443</Set>
+			<Set name="maxIdleTime">30000</Set>
+		</New>
+	</Arg>
+</Call> -->
+
+<!-- <Call name="addConnector">
+  <Arg>
+      <New class="org.eclipse.jetty.server.nio.SelectChannelConnector">
+        <Set name="host"><Property name="jetty.host" /></Set>
+        <Set name="port"><Property name="jetty.port" default="8181"/></Set>
+        <Set name="maxIdleTime">300000</Set>
+        <Set name="Acceptors">2</Set>
+        <Set name="statsOn">false</Set>
+        <Set name="confidentialPort">8443</Set>
+    <Set name="lowResourcesConnections">20000</Set>
+    <Set name="lowResourcesMaxIdleTime">5000</Set>
+      </New>
+  </Arg>
+</Call> -->
+
+<!-- 	<New id="sslContextFactory"	class="org.eclipse.jetty.http.ssl.SslContextFactory">
+		<Set name="KeyStore">
+			<Property name="jetty.home" default="."/>./etc/app-demo-keystore</Set>
+		<Set name="KeyStorePassword">P@ssw0rd</Set>
+		<Set name="KeyManagerPassword">P@ssw0rd</Set>
+		<Set name="TrustStore">
+			<Property name="jetty.home" default="."/>./etc/app-demo-keystore</Set>
+		<Set name="TrustStorePassword">P@ssw0rd</Set>
+	</New>
+
+	<Call name="addConnector">
+		<Arg>
+			<New class="org.eclipse.jetty.server.ssl.SslSelectChannelConnector">
+				<Arg>
+					<Ref id="sslContextFactory" />
+				</Arg>
+				<Set name="Port">8443</Set>
+				<Set name="maxIdleTime">30000</Set>
+				<Set name="Acceptors">2</Set>
+				<Set name="AcceptQueueSize">100</Set>
+			</New>
+		</Arg>
+	</Call> -->
+
+
+	<!-- =========================================================== -->
+	<!-- extra options                                               -->
+	<!-- =========================================================== -->
+	<Set name="stopAtShutdown">true</Set>
+	<Set name="stopTimeout">1000</Set>
+	<Set name="dumpAfterStart">false</Set>
+	<Set name="dumpBeforeStop">false</Set>
+
+
+	<!-- =========================================================== -->
+	<!-- Configure Authentication Realms -->
+	<!-- Realms may be configured for the entire server here, or -->
+	<!-- they can be configured for a specific web app in a context -->
+	<!-- configuration (see $(jetty.home)/contexts/test.xml for an -->
+	<!-- example). -->
+	<!-- =========================================================== -->
+	<Call name="addBean">
+		<Arg>
+			<New class="org.eclipse.jetty.jaas.JAASLoginService">
+				<Set name="name">karaf</Set>
+				<Set name="loginModuleName">karaf</Set>
+				<Set name="roleClassNames">
+					<Array type="java.lang.String">
+						<Item>org.apache.karaf.jaas.boot.principal.RolePrincipal
+						</Item>
+					</Array>
+				</Set>
+			</New>
+		</Arg>
+	</Call>
+	<Call name="addBean">
+		<Arg>
+			<New class="org.eclipse.jetty.jaas.JAASLoginService">
+				<Set name="name">default</Set>
+				<Set name="loginModuleName">karaf</Set>
+				<Set name="roleClassNames">
+					<Array type="java.lang.String">
+						<Item>org.apache.karaf.jaas.boot.principal.RolePrincipal
+						</Item>
+					</Array>
+				</Set>
+			</New>
+		</Arg>
+	</Call>
+</Configure>

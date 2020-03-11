@@ -7,10 +7,6 @@ echo Setting myEnvironment ....
 ADEMPIERE_DB_PATH=postgresql
 export ADEMPIERE_DB_PATH
 
-#   Seed Database ...
-SEED_DB_NAME=${KBS_SEEDDB_NAME}
-export SEED_DB_NAME
-
 #   Target Database ...
 DB_SERVER=${KBS_DB_HOST}
 export DB_SERVER

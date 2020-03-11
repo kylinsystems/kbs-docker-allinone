@@ -5,11 +5,11 @@ UPDATE ad_system SET lastbuildinfo = '0.0.0.000', name = 'KylinBizSuite' WHERE a
 INSERT INTO ad_sysconfig(
 	ad_sysconfig_id, ad_client_id, ad_org_id, created, updated, createdby, updatedby, isactive, name, value, description, entitytype, configurationlevel, ad_sysconfig_uu)
 	VALUES (99999, 0, 0, '2020-01-01', '2020-01-01', 100, 100, 'Y', 'APPLICATION_MAIN_VERSION', '0.0.0.000', 'Application Main Version', 'D', 'S', '00000000-0000-0000-0000-000000000000');
-
 ---- Setup APPLICATION_IMPLEMENTATION_VENDOR
 INSERT INTO ad_sysconfig(
 	ad_sysconfig_id, ad_client_id, ad_org_id, created, updated, createdby, updatedby, isactive, name, value, description, entitytype, configurationlevel, ad_sysconfig_uu)
 	VALUES (99998, 0, 0, '2020-01-01', '2020-01-01', 100, 100, 'Y', 'APPLICATION_IMPLEMENTATION_VENDOR', 'Supported by KSYS', 'Supported by KSYS', 'D', 'S', '00000000-0000-0000-0000-000000000001');
+
 ---- Setup ZK_BROWSER_ICON
 INSERT INTO ad_sysconfig(
 	ad_sysconfig_id, ad_client_id, ad_org_id, created, updated, createdby, updatedby, isactive, name, value, description, entitytype, configurationlevel, ad_sysconfig_uu)
@@ -38,7 +38,7 @@ update ad_sysconfig set value = 'Y' where name = 'ZK_GRID_AFTER_FIND';
 ---- Setup ZK_THEME to kbs
 update ad_sysconfig set value = 'kbs' where name = 'ZK_THEME';
 ---- Setup "Forgot My Password" 
-update ad_sysconfig set value = 'Y' where name = 'LOGIN_SHOW_RESETPASSWORD';
+update ad_sysconfig set value = 'N' where name = 'LOGIN_SHOW_RESETPASSWORD';
 
 ---- Toolbar Customization
 ---- Window - Delete

@@ -1,12 +1,13 @@
 version: '3'
+
 networks:
     default:
         external:
-            name: kbs_network
+            name: kbs_core
 
-# volumes:
-#   kbs_portainer_data:
-#     external: true
+volumes:
+  kbs_portainer_data:
+    external: true
 
 services:
   portainer:
@@ -18,15 +19,8 @@ services:
     command: -H unix:///var/run/docker.sock
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      # - kbs_portainer_data:/data
+      - kbs_portainer_data:/data
     networks:
         default:
             aliases:
                 - kbs-portainer
-    labels: # NOT WORKING!!! ###
-        - "traefik.enable=true"
-        - "traefik.http.services.portainer.loadbalancer.server.port=9000"
-        - "traefik.http.routers.portainer.rule=PathPrefix(`/portainer`)"
-        - "traefik.http.routers.portainer.entrypoints=http"
-        - "traefik.http.routers.portainer.middlewares=portainer-stripprefix"
-        - "traefik.http.middlewares.portainer-stripprefix.stripprefix.prefixes=/portainer"

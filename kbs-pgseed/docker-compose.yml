@@ -2,7 +2,7 @@ version: '3'
 networks:
     default:
         external:
-            name: kbs_network
+            name: kbs_core
 
 services:
     # PG Database Seed
@@ -12,7 +12,6 @@ services:
         build:
             context: .
         environment:
-            KBS_SEEDDB_NAME: ${KBS_SEEDDB_NAME}
             KBS_DB_HOST: ${KBS_DB_HOST}
             KBS_DB_PORT: ${KBS_DB_PORT}
             KBS_DB_NAME: ${KBS_DB_NAME}
@@ -20,8 +19,6 @@ services:
             KBS_DB_PASS: ${KBS_DB_PASS}
             KBS_DB_USER_RO: ${KBS_DB_USER_RO}
             KBS_DB_PASS_RO: ${KBS_DB_PASS_RO}
-            KBS_DB_USER_PGWATCH: ${KBS_DB_USER_PGWATCH}
-            KBS_DB_PASS_PGWATCH: ${KBS_DB_PASS_PGWATCH}
         networks:
             default:
                 aliases:

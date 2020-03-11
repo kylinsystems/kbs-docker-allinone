@@ -1,6 +1,7 @@
 version: '3'
+
 networks:
-    kbs_network:
+    kbs_core:
         external: true
 
 services:
@@ -11,13 +12,12 @@ services:
         build:
             context: .
         environment:
-            KBS_SEEDDB_NAME: ${KBS_SEEDDB_NAME}
             KBS_DB_HOST: ${KBS_DB_HOST}
             KBS_DB_PORT: ${KBS_DB_PORT}
             KBS_DB_NAME: ${KBS_DB_NAME}
             KBS_DB_USER: ${KBS_DB_USER}
             KBS_DB_PASS: ${KBS_DB_PASS}
         networks:
-            kbs_network:
+            kbs_core:
                 aliases:
                     - kbs-pgmigrator

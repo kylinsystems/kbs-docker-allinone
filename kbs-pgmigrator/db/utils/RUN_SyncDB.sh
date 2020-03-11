@@ -14,20 +14,10 @@ export ADEMPIERE_DB_USER
 ADEMPIERE_DB_PASSWORD=$DB_PASS
 export ADEMPIERE_DB_PASSWORD
 
-# echo "===================================="
-# echo "--Start SyncDB to Seed Database--"
-
-# ADEMPIERE_DB_NAME=$SEED_DB_NAME
-# export ADEMPIERE_DB_NAME
-
-# sh $ADEMPIERE_DB_PATH/SyncDB.sh "$ADEMPIERE_DB_USER" "$ADEMPIERE_DB_PASSWORD" "$ADEMPIERE_DB_PATH"
-# echo "--Done : SyncDB to Seed Database--"
-
-echo "===================================="
-echo "--Start SyncDB to Target Database--"
+echo "--Start SyncDB to Database : $DB_NAME --"
 
 ADEMPIERE_DB_NAME=$DB_NAME
 export ADEMPIERE_DB_NAME
 
 sh $ADEMPIERE_DB_PATH/SyncDB.sh "$ADEMPIERE_DB_USER" "$ADEMPIERE_DB_PASSWORD" "$ADEMPIERE_DB_PATH"
-echo "--Done : SyncDB to Target Database--"
+echo "--Done : SyncDB to Database : $DB_NAME --"

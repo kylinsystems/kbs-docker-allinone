@@ -1,1 +1,0 @@
-Placeholder for the configuration file

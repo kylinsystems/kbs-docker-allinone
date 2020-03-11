@@ -21,7 +21,6 @@ RUN apt-get update && \
 RUN mkdir /opt/idempiere-app/
 COPY db /opt/idempiere-app/db
 
-
 ENV IDEMPIERE_DB_HOME /opt/idempiere-app/db
 
 RUN chmod 755 ${IDEMPIERE_DB_HOME}/utils/*.sh;

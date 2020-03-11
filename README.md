@@ -1,4 +1,4 @@
-# KBS Docker All-in-One On-Premise Suite 
+# KBS Docker All-in-One On-Premises Suite 
 The all-in-one package to run KBS-iDempiere in Docker
 
 # How to Install, Uninstall and Update in Docker Desktop

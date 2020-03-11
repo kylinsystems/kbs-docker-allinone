@@ -37,7 +37,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y wget unzip pwgen expect su
 
 
 # Add app stuff into Container
-ADD app /tmp/app
+COPY app /tmp/app
 
 # Setup Zulu Openjdk (offline mode)
 ENV JVM_DIR /usr/lib/jvm
@@ -66,7 +66,7 @@ RUN rm /tmp/app/${IDEMPIERE_FILE}
 ## Root Home
 RUN mv /tmp/app/idempiere.properties ${IDEMPIERE_HOME}/idempiere.properties
 RUN mv /tmp/app/home.properties ${IDEMPIERE_HOME}/home.properties
-RUN mv /tmp/app/eclipse/hazelcast.xml ${IDEMPIERE_HOME}/hazelcast.xml
+RUN mv /tmp/app/hazelcast.xml ${IDEMPIERE_HOME}/hazelcast.xml
 RUN mv /tmp/app/eclipse/kbs-server.sh ${IDEMPIERE_HOME}/kbs-server.sh
 ## Jetty Home
 RUN mv /tmp/app/eclipse/jetty.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty.xml
@@ -80,7 +80,7 @@ RUN mv /tmp/app/eclipse/jetty-selector.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty
 RUN mv /tmp/app/eclipse/jetty-ssl.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-ssl.xml
 RUN mv /tmp/app/eclipse/jetty-ssl-context.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-ssl-context.xml
 RUN mv /tmp/app/eclipse/webdefault.xml ${IDEMPIERE_HOME}/jettyhome/etc/webdefault.xml
-RUN mv /tmp/app/eclipse/kbs-demo-keystore ${IDEMPIERE_HOME}/jettyhome/etc/kbs-demo-keystore
+RUN mv /tmp/app/kbs-demo-keystore ${IDEMPIERE_HOME}/jettyhome/etc/kbs-demo-keystore
 ## Default CoaFile
 RUN mv /tmp/app/AccountingDefaultsOnly.csv ${IDEMPIERE_HOME}/data/import/AccountingDefaultsOnly.csv
 

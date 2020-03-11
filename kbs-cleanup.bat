@@ -1,5 +1,5 @@
 REM ######################################################
-REM Uninstalling KBS Docker Suite Standard
+REM Uninstalling KBS Docker Suite
 REM ######################################################
 REM ......................................................
 call env.bat
@@ -8,8 +8,6 @@ REM ######################################################
 REM Stopping and removing containers...
 REM ######################################################
 docker-compose -f kbs-server/docker-compose.yml down -v
-docker-compose -f kbs-metabase/docker-compose.yml down -v
-docker-compose -f kbs-pgwatch/docker-compose.yml down -v
 docker-compose -f kbs-pgbackupper/docker-compose.yml down -v
 docker-compose -f kbs-pgadmin4/docker-compose.yml down -v
 docker-compose -f kbs-pgweb/docker-compose.yml down -v
@@ -17,12 +15,7 @@ docker-compose -f kbs-pgmigrator/docker-compose.yml down -v
 docker-compose -f kbs-pgseed/docker-compose.yml down -v
 docker-compose -f kbs-pgsingle/docker-compose.yml down -v
 docker-compose -f kbs-pgcluster/docker-compose.yml down -v
-docker-compose -f kbs-monitoring/docker-compose.yml down -v
 docker-compose -f kbs-portainer/docker-compose.yml down -v
-docker-compose -f kbs-traefik/docker-compose.yml down -v
-docker-compose -f kbs-haproxy/docker-compose.yml down -v
-docker-compose -f kbs-ldap/docker-compose.yml down -v
-docker-compose -f kbs-logging/docker-compose.yml down -v
 
 REM ###### Prune all stopped containers
 docker container prune -f
@@ -31,8 +24,6 @@ REM ######################################################
 REM Removing data volume...
 REM ######################################################
 docker volume rm kbs_portainer_data
-docker volume rm kbs_prometheus_data
-docker volume rm kbs_grafana_data
 docker volume rm kbs_pgmaster
 docker volume rm kbs_pgslave1
 docker volume rm kbs_pgslave3
@@ -44,8 +35,8 @@ docker volume prune -f
 REM ######################################################
 REM Removing network...
 REM ######################################################
-docker network rm kbs_network_pgcluster
-docker network rm kbs_network
+docker network rm kbs_pgcluster
+docker network rm kbs_core
 
 REM ######################################################
 REM List all

@@ -1,5 +1,5 @@
 REM ######################################################
-REM Updating KBS Docker Suite Standard
+REM Updating KBS Docker Suite
 REM ######################################################
 REM ......................................................
 call env.bat

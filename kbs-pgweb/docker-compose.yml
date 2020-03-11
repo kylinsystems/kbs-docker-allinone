@@ -2,7 +2,7 @@ version: '3'
 networks:
     default:
         external:
-            name: kbs_network
+            name: kbs_core
 
 services:
     pgweb:
@@ -26,8 +26,4 @@ services:
             default:
                 aliases:
                     - kbs-pgweb
-        labels:
-            - "traefik.enable=true"
-            - "traefik.http.services.pgweb.loadbalancer.server.port=8080"
-            - "traefik.http.routers.pgweb.rule=PathPrefix(`/pgweb`)"
-            - "traefik.http.routers.pgweb.entrypoints=http"
+
