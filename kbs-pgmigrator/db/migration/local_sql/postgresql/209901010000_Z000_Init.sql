@@ -42,7 +42,9 @@ update ad_sysconfig set value = 'N' where name = 'LOGIN_SHOW_RESETPASSWORD';
 
 ---- Toolbar Customization
 ---- Window - Delete
-update ad_toolbarbutton set seqno = 15, isshowmore = 'N' where ad_toolbarbutton_id = 200033;
+update ad_toolbarbutton set seqno = 25, isshowmore = 'N' where ad_toolbarbutton_id = 200033;
+---- Window - Ignore
+update ad_toolbarbutton set seqno = 35, isshowmore = 'N' where ad_toolbarbutton_id = 200029;
 ---- Window - Refresh
 update ad_toolbarbutton set seqno = 55, isshowmore = 'N' where  ad_toolbarbutton_id = 200037;
 ---- Window - Parent
