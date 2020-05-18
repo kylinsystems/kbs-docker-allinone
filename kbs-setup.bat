@@ -35,7 +35,7 @@ REM Starting...
 REM ######################################################
 docker-compose -f kbs-portainer/docker-compose.yml up --force-recreate -d
 
-docker-compose -f kbs-pgcluster/docker-compose.yml up --force-recreate -d pgmaster pgslave1 pgslave3 pgbackup pgpool
+docker-compose -f kbs-pgcluster/docker-compose.yml up --force-recreate -d
 ping -n 60 127.1 >nul
 
 docker-compose -f kbs-pgseed/docker-compose.yml up --force-recreate

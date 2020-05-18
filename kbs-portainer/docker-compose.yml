@@ -11,7 +11,7 @@ volumes:
 
 services:
   portainer:
-    image: portainer/portainer:1.23.1
+    image: portainer/portainer:1.23.2
     container_name: kbs-portainer
     restart: always
     ports:

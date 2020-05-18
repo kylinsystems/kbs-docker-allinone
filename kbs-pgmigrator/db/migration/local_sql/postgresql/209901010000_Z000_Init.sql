@@ -23,6 +23,12 @@ INSERT INTO ad_sysconfig(
 	ad_sysconfig_id, ad_client_id, ad_org_id, created, updated, createdby, updatedby, isactive, name, value, description, entitytype, configurationlevel, ad_sysconfig_uu)
 	VALUES (99995, 0, 0, '2020-01-01', '2020-01-01', 100, 100, 'Y', 'ZK_LOGO_LARGE', '/theme/kbs/images/login-logo.png', 'ZK_LOGO_LARGE', 'D', 'S', '00000000-0000-0000-0000-000000000004');
 
+---- Setup DB_READ_REPLICA_URLS
+INSERT INTO ad_sysconfig(
+	ad_sysconfig_id, ad_client_id, ad_org_id, created, updated, createdby, updatedby, isactive, name, value, description, entitytype, configurationlevel, ad_sysconfig_uu)
+	VALUES (99994, 0, 0, '2020-01-01', '2020-01-01', 100, 100, 'Y', 'DB_READ_REPLICA_URLS', 'jdbc:postgresql://kbs-pgslave:5432/idempiere?encoding=unicode', 'DB_READ_REPLICA_URLS', 'D', 'S', '00000000-0000-0000-0000-000000000005');
+
+
 ---- Setup ALogin_ShowDate to N
 update ad_sysconfig set value = 'N' where name = 'ALogin_ShowDate';
 ---- Setup ZK_PAGING_SIZE to 100
