@@ -16,10 +16,10 @@ RUN echo "deb https://mirrors.huaweicloud.com/ubuntu/ bionic main restricted uni
 
 
 # Setup Zulu Openjdk (apt-get mode)
-# RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
-# RUN apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
-# RUN apt-get update
-# RUN EBIAN_FRONTEND=noninteractive apt-get install -y zulu-11
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+RUN apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+RUN apt-get update
+RUN EBIAN_FRONTEND=noninteractive apt-get install -y zulu-11
 
 # Install unzip and other useful packages
 RUN apt-get update
@@ -51,16 +51,16 @@ ENV PATH $PATH:$JAVA_HOME/bin
 RUN java -version
 
 # Setup IDEMPIERE_HOME (online mode)
-# ENV IDEMPIERE_HOME /opt/idempiere-server/
-# ENV IDEMPIERE_FILE kbs-server-7.1.0.latest-linux.gtk.x86_64.zip
-# RUN wget https://github.com/kylinsystems/kbs-idempiere/releases/download/7.1.0.latest/${IDEMPIERE_FILE} \
-# 	&& unzip -d /opt ${IDEMPIERE_FILE} && rm ${IDEMPIERE_FILE}
-
-# Setup IDEMPIERE_HOME (offline mode)
 ENV IDEMPIERE_HOME /opt/idempiere-server/
 ENV IDEMPIERE_FILE kbs-server-7.1.0.latest-linux.gtk.x86_64.zip
-RUN unzip -d /opt /tmp/app/${IDEMPIERE_FILE}
-RUN rm /tmp/app/${IDEMPIERE_FILE}
+RUN wget https://github.com/kylinsystems/kbs-idempiere/releases/download/7.1.0.latest/${IDEMPIERE_FILE} \
+	&& unzip -d /opt ${IDEMPIERE_FILE} && rm ${IDEMPIERE_FILE}
+
+# Setup IDEMPIERE_HOME (offline mode)
+# ENV IDEMPIERE_HOME /opt/idempiere-server/
+# ENV IDEMPIERE_FILE kbs-server-7.1.0.latest-linux.gtk.x86_64.zip
+# RUN unzip -d /opt /tmp/app/${IDEMPIERE_FILE}
+# RUN rm /tmp/app/${IDEMPIERE_FILE}
 
 # Setup Environment for idempiere-server
 ## Root Home
