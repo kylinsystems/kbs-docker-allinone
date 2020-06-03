@@ -26,11 +26,23 @@ pre_start_action() {
 post_start_action() {
   echo "Init Database Instance"
 
-  echo "1/1. >>>Init the superuser: $USER"
+  echo "1/3. >>>Init the superuser: $USER"
 	setuser postgres psql -q <<-EOF
 	   ALTER USER $USER WITH ENCRYPTED PASSWORD 'postgres';
 	   ALTER ROLE $USER WITH SUPERUSER;
 	   ALTER ROLE $USER WITH LOGIN;
+	EOF
+
+  echo "2/3. >>>Init the adempiere user: ${KBS_DB_USER}"
+	setuser postgres psql -q <<-EOF
+     CREATE ROLE ${KBS_DB_USER} SUPERUSER LOGIN PASSWORD '${KBS_DB_PASS}';
+	   ALTER ROLE ${KBS_DB_USER} WITH SUPERUSER;
+	   ALTER ROLE ${KBS_DB_USER} WITH LOGIN;
+	EOF
+
+  echo "3/3. >>>Init the adempiere database: ${KBS_DB_NAME}"
+	setuser postgres psql -q <<-EOF
+     CREATE DATABASE ${KBS_DB_NAME} WITH ENCODING='UTF8' OWNER=${KBS_DB_USER};
 	EOF
 
   echo "Done. (Standalone Database)"

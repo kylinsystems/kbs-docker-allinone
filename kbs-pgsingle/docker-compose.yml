@@ -2,7 +2,7 @@ version: '3'
 networks:
     default:
         external:
-            name: kbs_network
+            name: kbs_core
 
 services:
     # PG Database Standalone
@@ -12,6 +12,10 @@ services:
         restart: always
         build:
             context: .
+        environment:
+            KBS_DB_NAME: ${KBS_DB_NAME}
+            KBS_DB_USER: ${KBS_DB_USER}
+            KBS_DB_PASS: ${KBS_DB_PASS}
         ports:
             - 5432:5432
         healthcheck:
