@@ -8,6 +8,7 @@ REM ######################################################
 REM Creating data volume...
 REM ######################################################
 docker volume create --name=kbs_portainer_data
+docker volume create --name=kbs_pg_data
 REM docker volume create --name=kbs_pgmaster
 REM docker volume create --name=kbs_pgslave1
 REM docker volume create --name=kbs_pgslave3
@@ -25,9 +26,9 @@ REM ######################################################
 docker-compose -f kbs-portainer/docker-compose.yml build
 docker-compose -f kbs-pgsingle/docker-compose.yml build
 REM docker-compose -f kbs-pgcluster/docker-compose.yml build
-docker-compose -f kbs-pgseed/docker-compose.yml build
-docker-compose -f kbs-pgmigrator/docker-compose.yml build
-docker-compose -f kbs-pgweb/docker-compose.yml build
+REM docker-compose -f kbs-pgseed/docker-compose.yml build
+REM docker-compose -f kbs-pgmigrator/docker-compose.yml build
+REM docker-compose -f kbs-pgweb/docker-compose.yml build
 docker-compose -f kbs-pgadmin4/docker-compose.yml build
 docker-compose -f kbs-server/docker-compose.yml build
 
@@ -40,13 +41,12 @@ REM docker-compose -f kbs-pgcluster/docker-compose.yml up --force-recreate -d
 REM ping -n 60 127.1 >nul
 
 docker-compose -f kbs-pgsingle/docker-compose.yml up --force-recreate -d
-ping -n 20 127.1 >nul
 
-docker-compose -f kbs-pgseed/docker-compose.yml up --force-recreate
+REM docker-compose -f kbs-pgseed/docker-compose.yml up --force-recreate
 
-docker-compose -f kbs-pgmigrator/docker-compose.yml up --force-recreate
+REM docker-compose -f kbs-pgmigrator/docker-compose.yml up --force-recreate
 
-docker-compose -f kbs-pgweb/docker-compose.yml up --force-recreate -d
+REM docker-compose -f kbs-pgweb/docker-compose.yml up --force-recreate -d
 
 docker-compose -f kbs-pgadmin4/docker-compose.yml up --force-recreate -d
 

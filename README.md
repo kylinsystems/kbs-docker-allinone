@@ -56,4 +56,5 @@ The all-in-one package to run KBS-iDempiere in Docker
 * Hawtio Console (karaf/karaf) :
   * [http://localhost/hawtio](http://localhost/hawtio)
 
-
+# Reference
+https://github.com/idempiere/idempiere-docker

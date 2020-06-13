@@ -24,6 +24,7 @@ REM ######################################################
 REM Removing data volume...
 REM ######################################################
 docker volume rm kbs_portainer_data
+docker volume rm kbs_pg_data
 docker volume rm kbs_pgmaster
 docker volume rm kbs_pgslave1
 docker volume rm kbs_pgslave3
