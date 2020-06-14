@@ -26,8 +26,6 @@ REM ######################################################
 docker-compose -f kbs-portainer/docker-compose.yml build
 docker-compose -f kbs-pgsingle/docker-compose.yml build
 REM docker-compose -f kbs-pgcluster/docker-compose.yml build
-REM docker-compose -f kbs-pgseed/docker-compose.yml build
-REM docker-compose -f kbs-pgmigrator/docker-compose.yml build
 REM docker-compose -f kbs-pgweb/docker-compose.yml build
 docker-compose -f kbs-pgadmin4/docker-compose.yml build
 docker-compose -f kbs-server/docker-compose.yml build

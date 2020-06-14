@@ -1,2 +1,0 @@
-# KBS Docker : PostgreSQL Seed
-
