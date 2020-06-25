@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 
 networks:
     default:
@@ -12,10 +12,10 @@ services:
         environment:
             KBS_DEBUG: ${KBS_DEBUG}
             DB_HOST: ${KBS_DB_HOST}
-            DB_PORT: 5432
-            DB_NAME: idempiere_db
-            DB_USER: adempiere
-            DB_PASS: adempiere
+            DB_PORT: ${KBS_DB_PORT}
+            DB_NAME: ${KBS_DB_NAME}
+            DB_USER: ${KBS_DB_USER}
+            DB_PASS: ${KBS_DB_PASS}
             DB_ADMIN_PASS: postgres
         build:
             context: .

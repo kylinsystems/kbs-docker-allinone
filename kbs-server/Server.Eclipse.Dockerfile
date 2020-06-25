@@ -8,6 +8,7 @@ FROM phusion/baseimage:18.04-1.0.0
 RUN locale-gen en_US.UTF-8 && \
     echo 'LANG="en_US.UTF-8"' > /etc/default/locale
 
+
 ### Setup fast apt in China
 RUN echo "deb https://mirrors.huaweicloud.com/ubuntu/ bionic main restricted universe multiverse \n" \
 		"deb https://mirrors.huaweicloud.com/ubuntu/ bionic-security main restricted universe multiverse \n" \
@@ -51,51 +52,37 @@ RUN java -version
 ### Add app stuff into Container
 COPY app /tmp/app
 
-
-### Setup IDEMPIERE_HOME (online mode)
-# ENV IDEMPIERE_HOME /opt/idempiere-server/
-# ENV IDEMPIERE_FILE kbs-server-7.1.0.latest-linux.gtk.x86_64.zip
-# RUN wget https://github.com/kylinsystems/kbs-idempiere/releases/download/7.1.0.latest/${IDEMPIERE_FILE} \
-# 	&& unzip -d /opt ${IDEMPIERE_FILE} && rm ${IDEMPIERE_FILE}
-
-### Setup IDEMPIERE_HOME (offline mode)
+### Setup IDEMPIERE_HOME
+ENV IDEMPIERE_VERSION 7.1.0.latest
 ENV IDEMPIERE_HOME /opt/idempiere-server/
-ENV IDEMPIERE_FILE kbs-server-7.1.0.latest-linux.gtk.x86_64.zip
-RUN unzip -d /opt /tmp/app/${IDEMPIERE_FILE}
-RUN rm /tmp/app/${IDEMPIERE_FILE}
-
+ENV IDEMPIERE_FILE kbs-server-${IDEMPIERE_VERSION}-linux.gtk.x86_64.zip
 WORKDIR $IDEMPIERE_HOME
+
+## Setup IDEMPIERE_HOME (online mode)
+RUN wget https://github.com/kylinsystems/kbs-idempiere/releases/download/7.1.0.latest/${IDEMPIERE_FILE} \
+	&& unzip -d /opt ${IDEMPIERE_FILE} && rm ${IDEMPIERE_FILE}
+
+## Setup IDEMPIERE_HOME (offline mode)
+# RUN unzip -d /opt /tmp/app/${IDEMPIERE_FILE}
+# RUN rm /tmp/app/${IDEMPIERE_FILE}
+
 
 ### Setup Environment for idempiere-server
 ## Root Home
 RUN mv /tmp/app/home.properties ${IDEMPIERE_HOME}/home.properties
 RUN mv /tmp/app/eclipse/kbs-server.sh ${IDEMPIERE_HOME}/kbs-server.sh
-# RUN mv /tmp/app/idempiere.properties ${IDEMPIERE_HOME}/idempiere.properties
-# RUN mv /tmp/app/hazelcast.xml ${IDEMPIERE_HOME}/hazelcast.xml
-
-## Jetty Home
-# RUN mv /tmp/app/eclipse/jetty.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty.xml
-# RUN mv /tmp/app/eclipse/jetty-alpn.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-alpn.xml
-# RUN mv /tmp/app/eclipse/jetty-deployer.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-deployer.xml
-# RUN mv /tmp/app/eclipse/jetty-http.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-http.xml
-# RUN mv /tmp/app/eclipse/jetty-http2.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-http2.xml
-# RUN mv /tmp/app/eclipse/jetty-https.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-https.xml
-# RUN mv /tmp/app/eclipse/jetty-plus.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-plus.xml
-# RUN mv /tmp/app/eclipse/jetty-selector.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-selector.xml
-# RUN mv /tmp/app/eclipse/jetty-ssl.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-ssl.xml
-# RUN mv /tmp/app/eclipse/jetty-ssl-context.xml ${IDEMPIERE_HOME}/jettyhome/etc/jetty-ssl-context.xml
-# RUN mv /tmp/app/eclipse/webdefault.xml ${IDEMPIERE_HOME}/jettyhome/etc/webdefault.xml
-# RUN mv /tmp/app/kbs-demo-keystore ${IDEMPIERE_HOME}/jettyhome/etc/kbs-demo-keystore
 
 ## Default CoaFile
 RUN mv /tmp/app/AccountingDefaultsOnly.csv ${IDEMPIERE_HOME}/data/import/AccountingDefaultsOnly.csv
 
-### Docker Entrypoint
+## Docker Entrypoint
 RUN mv /tmp/app/docker-entrypoint.sh $IDEMPIERE_HOME
 
-### Clean tmp/app
+
+### Clean up
+## Clean tmp/app
 RUN rm -rf /tmp/app
-### Clean up APT when done
+## Clean up APT when done
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ### set +x for script
@@ -104,19 +91,14 @@ RUN chmod 755 ${IDEMPIERE_HOME}/*.sh
 RUN chmod 755 ${IDEMPIERE_HOME}/utils/*.sh
 RUN chmod 755 ${IDEMPIERE_HOME}/utils/postgresql/*.sh
 
+### Export Port
 EXPOSE 8080 8443 4554
 
 ### Health Check
 HEALTHCHECK --interval=5s --timeout=3s --retries=12 CMD curl --silent -fs http://localhost:8080/app || exit 1
 
-### Add daemon to be run by runit
-# RUN chmod +x ${IDEMPIERE_HOME}/kbs-server.sh
-# RUN mkdir /etc/service/kbs-server
-# RUN ln -s ${IDEMPIERE_HOME}/kbs-server.sh /etc/service/kbs-server/run
 
-### Use baseimage-docker's init system
-# CMD ["/sbin/my_init"]
-
+### Setup script for Entrypoint
 RUN chmod +x ${IDEMPIERE_HOME}/kbs-server.sh
 RUN ln -s $IDEMPIERE_HOME/kbs-server.sh /usr/bin/kbs-server
 

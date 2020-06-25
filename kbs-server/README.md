@@ -1,11 +1,6 @@
 # KBS Docker : Server 
 Running KBS Server in Docker
 
-## Prerequisites
-Download kbs-server-7.1.0.latest-linux.gtk.x86_64.zip from https://github.com/kylinsystems/kbs-idempiere/releases/tag/7.1.0.latest
-
-Place it into folder kbs-server/app
-
 ## Build & install
 Please refer to https://github.com/kylinsystems/kbs-docker-allinone
 

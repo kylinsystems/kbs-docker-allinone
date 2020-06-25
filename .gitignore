@@ -1,5 +1,5 @@
 kbs-pgbackupper/archives/backup_db
 kbs-server/app/kbs-server-*.latest-linux.gtk.x86_64.zip
-kbs-server/app/zulu11.37.17-ca-jdk11.0.6-linux_x64.tar.gz
-kbs-server/app/karaf/apache-karaf-4.2.8.tar.gz
+kbs-server/app/zulu11.*-linux_x64.tar.gz
+kbs-server/app/karaf/apache-karaf-*.tar.gz
 kbs-server/app/karaf/kbs.karaf.repository.zip

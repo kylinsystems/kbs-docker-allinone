@@ -4,20 +4,17 @@ REM ######################################################
 REM ......................................................
 call env.bat
 
+set MIGRATE_EXISTING_DATABASE=true
+
 REM ######################################################
 REM Building images...
 REM ######################################################
-docker-compose -f kbs-pgmigrator/docker-compose.yml build
 docker-compose -f kbs-server/docker-compose.yml build
 
 REM ######################################################
 REM Starting...
 REM ######################################################
-docker-compose -f kbs-pgmigrator/docker-compose.yml up --force-recreate
-
 docker-compose -f kbs-server/docker-compose.yml up --force-recreate -d
-REM ###### waiting 60s to complete start kbs-server
-ping -n 60 127.1 >nul
 
 REM ######################################################
 REM List all

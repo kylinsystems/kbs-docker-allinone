@@ -40,10 +40,6 @@ REM ping -n 60 127.1 >nul
 
 docker-compose -f kbs-pgsingle/docker-compose.yml up --force-recreate -d
 
-REM docker-compose -f kbs-pgseed/docker-compose.yml up --force-recreate
-
-REM docker-compose -f kbs-pgmigrator/docker-compose.yml up --force-recreate
-
 REM docker-compose -f kbs-pgweb/docker-compose.yml up --force-recreate -d
 
 docker-compose -f kbs-pgadmin4/docker-compose.yml up --force-recreate -d
