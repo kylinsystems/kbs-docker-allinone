@@ -17,6 +17,7 @@ services:
             DB_USER: ${KBS_DB_USER}
             DB_PASS: ${KBS_DB_PASS}
             DB_ADMIN_PASS: postgres
+            MIGRATE_EXISTING_DATABASE: ${MIGRATE_EXISTING_DATABASE}
         build:
             context: .
             dockerfile: Server.Eclipse.Dockerfile

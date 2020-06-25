@@ -27,6 +27,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361
 RUN apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
 RUN apt-get update
 RUN EBIAN_FRONTEND=noninteractive apt-get install -y zulu-11
+ENV JAVA_HOME=/usr/lib/jvm/zulu-11-amd64
 
 ### Setup Zulu Openjdk (online mode)
 # ENV JVM_DIR /usr/lib/jvm
