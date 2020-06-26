@@ -6,8 +6,7 @@ echo "------------------------------------------------------------"
 
 ./env.sh
 
-MIGRATE_EXISTING_DATABASE=true
-export MIGRATE_EXISTING_DATABASE
+export MIGRATE_EXISTING_DATABASE=true
 
 echo "------------------------------------------------------------"
 echo "###### Building images..."

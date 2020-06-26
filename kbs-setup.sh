@@ -4,18 +4,7 @@ echo "------------------------------------------------------------"
 echo "####### Setup KBS Docker Suite"
 echo "------------------------------------------------------------"
 
-export KBS_TAG=7.1.0.latest
-export BS_DEBUG=true
-
-export KBS_DB_HOST=kbs-pgserver
-export KBS_DB_PORT=5432
-export KBS_DB_NAME=idempiere_db
-export KBS_DB_USER=adempiere
-export KBS_DB_PASS=adempiere
-
-export ORT_KBS=8080
-export PORT_PORTAINER=9000
-export PORT_PGADMIN4=9010
+./env.sh
 
 echo "------------------------------------------------------------"
 echo "###### Creating data volume..."
