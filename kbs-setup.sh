@@ -4,7 +4,7 @@ echo "------------------------------------------------------------"
 echo "####### Setup KBS Docker Suite"
 echo "------------------------------------------------------------"
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+DIR="$(dirname "${BASH_SOURCE[0]}")"  # get the directory name
 source $DIR/env.sh
 
 echo "------------------------------------------------------------"
