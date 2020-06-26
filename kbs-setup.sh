@@ -4,7 +4,8 @@ echo "------------------------------------------------------------"
 echo "####### Setup KBS Docker Suite"
 echo "------------------------------------------------------------"
 
-source ./env.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+source $DIR/env.sh
 
 echo "------------------------------------------------------------"
 echo "###### Creating data volume..."
