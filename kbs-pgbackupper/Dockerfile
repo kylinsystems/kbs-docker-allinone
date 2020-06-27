@@ -1,4 +1,4 @@
-FROM postgres:10.11
+FROM postgres:11.8
 
 ### Make default locale
 RUN locale-gen en_US.UTF-8 && \

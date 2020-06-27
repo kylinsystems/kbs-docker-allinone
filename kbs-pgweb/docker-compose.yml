@@ -16,12 +16,12 @@ services:
             PG_HOST_NAME: ${KBS_DB_HOST}
             PG_HOST_PORT: ${KBS_DB_PORT}
             PG_DB: ${KBS_DB_NAME}
-            PG_USER: ${KBS_DB_USER_RO}
-            PG_PASSWORD: ${KBS_DB_PASS_RO}
+            PG_USER: ${KBS_DB_USER}
+            PG_PASSWORD: ${KBS_DB_PASS}
             PGWEB_AUTH_USER: pgweb
             PGWEB_AUTH_PASS: pgweb
         ports:
-            - ${PORT_PGWEB}:8080
+            - 9020:8080
         networks:
             default:
                 aliases:

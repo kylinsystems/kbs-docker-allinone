@@ -8,9 +8,9 @@ REM ######################################################
 REM Stopping and removing containers...
 REM ######################################################
 docker-compose -f kbs-server/docker-compose.yml down -v
-REM docker-compose -f kbs-pgbackupper/docker-compose.yml down -v
+docker-compose -f kbs-pgbackupper/docker-compose.yml down -v
 docker-compose -f kbs-pgadmin4/docker-compose.yml down -v
-REM docker-compose -f kbs-pgweb/docker-compose.yml down -v
+docker-compose -f kbs-pgweb/docker-compose.yml down -v
 docker-compose -f kbs-pgsingle/docker-compose.yml down -v
 REM docker-compose -f kbs-pgcluster/docker-compose.yml down -v
 docker-compose -f kbs-portainer/docker-compose.yml down -v
@@ -26,7 +26,6 @@ docker volume rm kbs_pg_data
 docker volume rm kbs_pgmaster
 docker volume rm kbs_pgslave1
 docker volume rm kbs_pgslave3
-docker volume rm kbs_pgbackup
 
 REM ###### Prune all unused volumes 
 docker volume prune -f
