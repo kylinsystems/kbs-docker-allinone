@@ -3,6 +3,7 @@
 set -Eeo pipefail
 
 echo "Start Docker Container for KBS Server"
+echo "Timezone : $TZ" 
 
 KEY_STORE_PASS=${KEY_STORE_PASS:-myPassword}
 KEY_STORE_ON=${KEY_STORE_ON:-kylinsystems.com}

@@ -10,6 +10,7 @@ services:
         image: kylinsystems/kbs-server-eclipse:${KBS_TAG}
         container_name: kbs-server
         environment:
+            TZ: "Asia/Shanghai"
             KBS_DEBUG: ${KBS_DEBUG}
             DB_HOST: ${KBS_DB_HOST}
             DB_PORT: ${KBS_DB_PORT}
