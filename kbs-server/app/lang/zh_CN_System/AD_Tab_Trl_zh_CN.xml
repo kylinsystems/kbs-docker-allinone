@@ -206,13 +206,13 @@
  </row>
  <row id="135" trl="Y">
   <value column="Name" original="Country">国家/地区</value>
-  <value column="CommitWarning" original="Please create a support request - https://idempiere.atlassian.net/secure/CreateIssue.jspa - if the country data is not correct.">如果国家有误，请提交修改请求(https://idempiere.atlassian.net/secure/CreateIssue.jspa)</value>
+  <value column="CommitWarning" original="Please create a support request - https://idempiere.atlassian.net/secure/CreateIssue.jspa - if the country data is not correct.">如果国家有误，请提交修改请求</value>
   <value column="Description" original="Define Country">定义国家/地区</value>
   <value column="Help" original="The Country Tab defines any country in which you do business.  Values entered here are referenced in location records for Business Partners.">定义国家/地区</value>
  </row>
  <row id="136" trl="Y">
   <value column="Name" original="Region">省份/区域</value>
-  <value column="CommitWarning" original="Please create a support request - https://idempiere.atlassian.net/secure/CreateIssue.jspa - if the region info is not correct/incomplete.">如果区域信息有误，请提交修改请求(https://idempiere.atlassian.net/secure/CreateIssue.jspa)</value>
+  <value column="CommitWarning" original="Please create a support request - https://idempiere.atlassian.net/secure/CreateIssue.jspa - if the region info is not correct/incomplete.">如果区域信息有误，请提交修改请求</value>
   <value column="Description" original="Define Regions">定义省份/区域</value>
   <value column="Help" original="The Region Tab  defines a Region within a Country.  This tab is enabled only if the Has Region checkbox is selected for the Country.">定义省份/区域</value>
  </row>
@@ -426,7 +426,7 @@
   <value column="Name" original="Order">销售订单</value>
   <value column="CommitWarning" original=""/>
   <value column="Description" original="Order Header">销售订单</value>
-  <value column="Help" original="The Order Header Tab defines the parameters of an Order. Changing the Organization, Business Partner, Warehouse, Date Promised, etc. changes these values on all the lines. "><![CDATA[销售订单有9种子单据类型：<br />
+  <value column="Help" original="The Order Header Tab defines the parameters of an Order. Changing the Organization, Business Partner, Warehouse, Date Promised, etc. changes these values on all the lines. "><![CDATA[销售订单有以下子单据类型：<br />
 <br />报价方案：完成后，不预留库存
 <br />报价单：完成后，预留库存
 <br />标准订单：完成后，无自动单据生成
@@ -435,8 +435,7 @@
 <br />预付订单：完成后无动作，付款后自动生成发货单、发票
 <br />POS订单：完成后，自动生成发货单、发票、收款单
 <br />退货授权：分客户RMA和供应商RMA
-<br />
-<br />更多说明参考：http://idempiere_guide_fi.mydoc.io/?t=178385]]></value>
+<br />]]></value>
  </row>
  <row id="187" trl="Y">
   <value column="Name" original="Order Line">订单明细</value>

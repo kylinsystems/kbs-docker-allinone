@@ -332,7 +332,7 @@
  <row id="172" trl="Y">
   <value column="Name" original="Synchronize Terminology">同步词条</value>
   <value column="Description" original="Synchronize the terminology within the system.">同步字典对象的词条（名称、描述、备注）及词条翻译</value>
-  <value column="Help" original="Based on the entries in Window Element, the fields in windows, parameters, etc. are synchronized, if they are centrally maintained.  Also synchronizes Language Translation."><![CDATA[如果字典对象使用集中维护选项，系统将将同步词条及翻译。比如从元素同步到表、列、字段、流程参数、信息窗口字段、打印格式项，从窗口、流程、窗体、工作流等对象同步到菜单。<br /> 注意，只需关注同步的词条来源，或者取消集中维护来保留场景词条。<br /> 具体细节可参考：http://idempiere_guide_sm.mydoc.io/?t=134391#widget_6525300]]></value>
+  <value column="Help" original="Based on the entries in Window Element, the fields in windows, parameters, etc. are synchronized, if they are centrally maintained.  Also synchronizes Language Translation."><![CDATA[如果字典对象使用集中维护选项，系统将将同步词条及翻译。比如从元素同步到表、列、字段、流程参数、信息窗口字段、打印格式项，从窗口、流程、窗体、工作流等对象同步到菜单。<br /> 注意，只需关注同步的词条来源，或者取消集中维护来保留场景词条。]]></value>
  </row>
  <row id="173" trl="Y">
   <value column="Name" original="Create Columns from DB">从数据库创建列</value>
@@ -1196,7 +1196,7 @@
  <row id="342" trl="Y">
   <value column="Name" original="Validate Support">验证支持合同</value>
   <value column="Description" original="Validate Support Contract">验证支持合同是否有效</value>
-  <value column="Help" original="The process connects to the iDempiere Support Services server and validates the support contract.  To sign up for support, please go to http://www.idempiere.org">该过程将连接到iDempiere系统支持服务服务器，并验证支持合同。要注册支持，请访问http://www.idempiere.org。</value>
+  <value column="Help" original="The process connects to the iDempiere Support Services server and validates the support contract.  To sign up for support, please go to http://www.idempiere.org">该过程将连接到iDempiere系统支持服务服务器，并验证支持合同。要注册支持，请访问www.idempiere.org。</value>
  </row>
  <row id="343" trl="Y">
   <value column="Name" original="Import Payments">导入支付单</value>
@@ -1720,7 +1720,7 @@ DRP的常见参数：下期需量，期初计划入库量、下期安全库存�
   <value column="Help" original="This process allows Enable the native sequences based in the current AD_Sequence.&#10;&#10;This process should be implemented when the users are not connected."><![CDATA[系统使用AD_Sequence表来管理表的序号，也可以直接使用数据库的Sequence序列功能来管理。<br />
 流程打开SYSTEM_NATIVE_SEQUENCE参数，添加AD_Sequence/AD_Issue/AD_ChangeLog三个序列。<br />
 注意：只是替换的表_ID的序号，而不是单据ID的序号。仅当所有用户离线时才能运行。<br />
-参考：https://idempiere.atlassian.net/browse/IDEMPIERE-422]]></value>
+参考：IDEMPIERE-422]]></value>
  </row>
  <row id="53159" trl="Y">
   <value column="Name" original="Cost BOM Multi Level Review">成本 BOM 多级报表</value>
@@ -1899,8 +1899,7 @@ DRP的常见参数：下期需量，期初计划入库量、下期安全库存�
   <value column="Name" original="UUID Generator">生成 UUID</value>
   <value column="Description" original="">为数据库中的表添加UUID字段</value>
   <value column="Help" original=""><![CDATA[用于为数据库的表添加"表名_uuid"字段，比如迁移旧系统或者自定义表手动添加。<br />
-如果不选择表，将检查所有表。运行返回结果，详细清单可以在“流程日志”查看。<br />
-参考：https://groups.google.com/d/msg/idempiere/fy9Ptgyzgxo/RFHuetfFBAAJ]]></value>
+如果不选择表，将检查所有表。运行返回结果，详细清单可以在“流程日志”查看。]]></value>
  </row>
  <row id="53255" trl="N">
   <value column="Name" original="MP Prognosis">MP Prognosis</value>

@@ -484,7 +484,7 @@
  <row id="50166" trl="Y">
   <value column="Name" original="Configured Value">配置值</value>
   <value column="Description" original="Value for the configuration key">设置该项配置对应的值</value>
-  <value column="Help" original="You can check the valid variables and values at http://wiki.idempiere.org/en/System_Configurator_(Window_ID-50006)">你可以根据系统配置器可配置的各项参数的说明来进行配置 http://wiki.idempiere.org/en/System_Configurator_(Window_ID-50006)。</value>
+  <value column="Help" original="You can check the valid variables and values at http://wiki.idempiere.org/en/System_Configurator_(Window_ID-50006)">你可以根据系统配置器可配置的各项参数的说明来进行配置</value>
  </row>
  <row id="53360" trl="Y">
   <value column="Name" original="Value">条件值</value>
@@ -966,7 +966,7 @@ The Valid From and Valid To dates indicate the valid time period to use the BOM 
  <row id="203108" trl="Y">
   <value column="Name" original="ViewID Column">视图列</value>
   <value column="Description" original="Name of unique column in a view. value of this column will save to t_selection table">视图中的列名，列值将保存到 t_selection 表</value>
-  <value column="Help" original="Column to resolve issue in https://idempiere.atlassian.net/browse/IDEMPIERE-1970">参考 https://idempiere.atlassian.net/browse/IDEMPIERE-1970。</value>
+  <value column="Help" original="Column to resolve issue in https://idempiere.atlassian.net/browse/IDEMPIERE-1970">参考 IDEMPIERE-1970。</value>
  </row>
  <row trl="Y" uuid="5cf7aebb-33dc-4f32-aa25-7fbba3ca7152">
   <value column="Name" original="Amount">数量</value>

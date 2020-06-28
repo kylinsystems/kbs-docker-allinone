@@ -1096,8 +1096,8 @@
  <row id="244" trl="Y">
   <value column="Name" original="ISO Country Code">ISO 国家/地区编码</value>
   <value column="PrintName" original="ISO Country">ISO 国家/地区编码</value>
-  <value column="Description" original="Upper-case two-letter alphanumeric ISO Country code according to ISO 3166-1 - http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html">两位大小字母的ISO 国家/地区(参照ISO 3166-1 - http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html）</value>
-  <value column="Help" original="For details - http://www.din.de/gremien/nas/nabd/iso3166ma/codlstp1.html or - http://www.unece.org/trade/rec/rec03en.htm">两位大小字母的ISO 国家/地区(参照ISO 3166-1 - http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html）</value>
+  <value column="Description" original="Upper-case two-letter alphanumeric ISO Country code according to ISO 3166-1 - http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html"><![CDATA[两位大小字母的ISO 国家/地区(参照ISO 3166-1 - http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html）]]></value>
+  <value column="Help" original="For details - http://www.din.de/gremien/nas/nabd/iso3166ma/codlstp1.html or - http://www.unece.org/trade/rec/rec03en.htm"><![CDATA[两位大小字母的ISO 国家/地区(参照ISO 3166-1 - http://www.chemie.fu-berlin.de/diverse/doc/ISO_3166.html）]]></value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -1177,7 +1177,7 @@
   <value column="Name" original="D-U-N-S">邓氏编码</value>
   <value column="PrintName" original="D-U-N-S">邓氏编码</value>
   <value column="Description" original="Dun &amp; Bradstreet Number">D-U-N-S 邓白氏编码</value>
-  <value column="Help" original="Used for EDI - For details see   www.dnb.com/dunsno/list.htm">D-U-N-S 邓白氏编码，http://www.dnbchina.com/</value>
+  <value column="Help" original="Used for EDI - For details see www.dnb.com/dunsno/list.htm">D-U-N-S 邓白氏编码</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -2033,7 +2033,7 @@ c) SQL代码：@SQL=SELECT xxx AS DefaultValue FROM ....@，SQL语句可以包�
   <value column="PrintName" original="Key column">主键列</value>
   <value column="Description" original="This column is the key in this table">与数据库列主键相同，主键列用于标识记录唯一性</value>
   <value column="Help" original="The key column must also be display sequence 0 in the field definition and may be hidden."><![CDATA[与数据库列主键相同，主键列用于标识记录唯一性。主键列对应的字段显示可以显示（顺序为0），也可以隐藏。<br />
-如果表有多个主键，则不选，表示为多主键表。具体信息参考：http://idempiere_guide_sm.mydoc.io/?t=134396#widget_6603644]]></value>
+如果表有多个主键，则不选，表示为多主键表。]]></value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -2502,8 +2502,8 @@ c) SQL代码：@SQL=SELECT xxx AS DefaultValue FROM ....@，SQL语句可以包�
  <row id="468" trl="Y">
   <value column="Name" original="NAICS/SIC">行业分类</value>
   <value column="PrintName" original="NAICS/SIC">行业分类</value>
-  <value column="Description" original="Standard Industry Code or its successor NAIC - http://www.osha.gov/oshstats/sicser.html">标准行业代码或它的继承者： 北美工业分类系统 - http：//www.osha.gov/oshstats/sicser.html</value>
-  <value column="Help" original="The NAICS/SIC identifies either of these codes that may be applicable to this Business Partner.">标准行业代码或它的继承者： 北美工业分类系统 - http：//www.osha.gov/oshstats/sicser.html</value>
+  <value column="Description" original="Standard Industry Code or its successor NAIC - http://www.osha.gov/oshstats/sicser.html">标准行业代码或它的继承者</value>
+  <value column="Help" original="The NAICS/SIC identifies either of these codes that may be applicable to this Business Partner.">标准行业代码或它的继承者</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -4451,8 +4451,8 @@ c) SQL代码：@SQL=SELECT xxx AS DefaultValue FROM ....@，SQL语句可以包�
  <row id="983" trl="Y">
   <value column="Name" original="URL">网址</value>
   <value column="PrintName" original="URL">网址</value>
-  <value column="Description" original="Full URL address - e.g. http://www.idempiere.org">网址 - 例如 http://www.idempiere.org</value>
-  <value column="Help" original="The URL defines an fully qualified web address like http://www.idempiere.org">网址 - 例如 http://www.idempiere.org</value>
+  <value column="Description" original="Full URL address - e.g. http://www.idempiere.org">网址</value>
+  <value column="Help" original="The URL defines an fully qualified web address like http://www.idempiere.org">网址</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -5237,8 +5237,8 @@ c) SQL代码：@SQL=SELECT xxx AS DefaultValue FROM ....@，SQL语句可以包�
  <row id="1108" trl="Y">
   <value column="Name" original="ISO Language Code">ISO 语言编码</value>
   <value column="PrintName" original="ISO Language">ISO 语言编码</value>
-  <value column="Description" original="Lower-case two-letter ISO-3166 code - http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt ">两位大小字母的 ISO-3166 编码 - http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt</value>
-  <value column="Help" original="The ISO Language Code indicates the standard ISO code for a language in lower case.  Information can be found at http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt ">两位大小字母的 ISO-3166 编码 - http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt</value>
+  <value column="Description" original="Lower-case two-letter ISO-3166 code - http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt ">两位大小字母的 ISO-3166 编码</value>
+  <value column="Help" original="The ISO Language Code indicates the standard ISO code for a language in lower case.  Information can be found at http://www.ics.uci.edu/pub/ietf/http/related/iso639.txt ">两位大小字母的 ISO-3166 编码</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -9020,7 +9020,7 @@ c) SQL代码：@SQL=SELECT xxx AS DefaultValue FROM ....@，SQL语句可以包�
   <value column="Name" original="Image">图片</value>
   <value column="PrintName" original="Image">图片</value>
   <value column="Description" original="Image or Icon">图片或图标</value>
-  <value column="Help" original="Images and Icon can be used to display supported graphic formats (gif, jpg, png).&#10;You can either load the image (in the database) or point to a graphic via a URI (i.e. it can point to a resource, http address)">图片或图标，可以存储在数据库内，也可以使用 URI 地址。</value>
+  <value column="Help" original="Images and Icon can be used to display supported graphic formats (gif, jpg, png). You can either load the image (in the database) or point to a graphic via a URI (i.e. it can point to a resource, http address)">图片或图标，可以存储在数据库内，也可以使用 URI 地址。</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -10762,7 +10762,7 @@ c) SQL代码：@SQL=SELECT xxx AS DefaultValue FROM ....@，SQL语句可以包�
   <value column="Name" original="Locode">地区编码</value>
   <value column="PrintName" original="Locode">地区编码</value>
   <value column="Description" original="Location code - UN/LOCODE ">地区编码 - UN/LOCODE</value>
-  <value column="Help" original="UN/Locode is a combination of a 2-character country code and a 3-character location code, e.g. BEANR is known as the city of Antwerp (ANR) which is located in Belgium (BE).&#10;&lt;p&gt;See: http://www.unece.org/cefact/locode/service/main.htm">地区编码 - UN/LOCODE</value>
+  <value column="Help" original="UN/Locode is a combination of a 2-character country code and a 3-character location code, e.g. BEANR is known as the city of Antwerp (ANR) which is located in Belgium (BE). See: http://www.unece.org/cefact/locode/service/main.htm">地区编码 - UN/LOCODE</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -13512,7 +13512,7 @@ c) SQL代码：@SQL=SELECT xxx AS DefaultValue FROM ....@，SQL语句可以包�
   <value column="Name" original="Internal Users">用户数量</value>
   <value column="PrintName" original="Internal Users">用户数量</value>
   <value column="Description" original="Number of Internal Users for iDempiere Support">受 iDempiere 技术支持的内部用户数</value>
-  <value column="Help" original="You can purchase professioal support from iDempiere, Inc. or their partners.  See http://www.idempiere.org for details.&#10;">受 iDempiere 技术支持的内部用户数</value>
+  <value column="Help" original="You can purchase professioal support from iDempiere, Inc. or their partners. See http://www.idempiere.org for details.">受 iDempiere 技术支持的内部用户数</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -18580,7 +18580,7 @@ c) SQL代码：@SQL=SELECT xxx AS DefaultValue FROM ....@，SQL语句可以包�
   <value column="Name" original="IBAN">IBAN</value>
   <value column="PrintName" original="IBAN">IBAN</value>
   <value column="Description" original="International Bank Account Number">欧盟常用的国际银行帐号</value>
-  <value column="Help" original="If your bank provides an International Bank Account Number, enter it here&#10;Details ISO 13616 and http://www.ecbs.org. The account number has the maximum length of 22 characters (without spaces). The IBAN is often printed with a apace after 4 characters. Do not enter the spaces in iDempiere."><![CDATA[国际银行帐户号码（The International Bank Account Number，简称IBAN)，由欧洲银行标准委员会（ European Committee for Banking Standards，简称 ECBS）按照其标准制定的一个银行帐户号码。参加ECBS的会员国的银行帐户号码都有一个对应杜IBAN号码。可以联系你的开户行获取IBAN号码。<br />注：中国的银行是没有IBAN号码的（使用SWIFT），好像IBAN只适用于欧洲，美国的银行也没有的。]]></value>
+  <value column="Help" original="If your bank provides an International Bank Account Number, enter it here. Details ISO 13616 and http://www.ecbs.org. The account number has the maximum length of 22 characters (without spaces). The IBAN is often printed with a apace after 4 characters. Do not enter the spaces in iDempiere."><![CDATA[国际银行帐户号码（The International Bank Account Number，简称IBAN)，由欧洲银行标准委员会（ European Committee for Banking Standards，简称 ECBS）按照其标准制定的一个银行帐户号码。参加ECBS的会员国的银行帐户号码都有一个对应杜IBAN号码。可以联系你的开户行获取IBAN号码。<br />注：中国的银行是没有IBAN号码的（使用SWIFT），好像IBAN只适用于欧洲，美国的银行也没有的。]]></value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -22040,8 +22040,8 @@ BOM变更申请：暂时变更，永久变更，可选变更。<br />
  <row id="3030" trl="Y">
   <value column="Name" original="Fully Qualified Domain Name">完整域名</value>
   <value column="PrintName" original="Fully Qualified Domain Name">完整域名</value>
-  <value column="Description" original="Fully Qualified Domain Name i.e. www.comdivision.com">完全合格的域名 例如 www.comdivision.com</value>
-  <value column="Help" original="This field contains the so called fully qualified domain name including host and domain, but not anything protocol specific like http or the document path.">完全合格的域名 例如 www.comdivision.com</value>
+  <value column="Description" original="Fully Qualified Domain Name i.e. www.abc.com">完全合格的域名 例如 www.abc.com</value>
+  <value column="Help" original="This field contains the so called fully qualified domain name including host and domain, but not anything protocol specific like http or the document path.">完全合格的域名 例如 www.abc.com</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>
@@ -38587,7 +38587,7 @@ BOM变更申请：暂时变更，永久变更，可选变更。<br />
   <value column="Name" original="A_Account_Number_Acct">账户户头</value>
   <value column="PrintName" original="A_Account_Number_Acct">账户户头</value>
   <value column="Description" original="">账户户头的账户</value>
-  <value column="Help" original=""><![CDATA[账户户头的账户，参考：https://www.baidu.com/link?url=RYVs0wqOvYNpjVCdnhd7Ye34IMqnJUORMgNILs2BMVHzAoK7Kp9bhpvniPv8na-KM9RXViZiYf4UAPL9RCpKGq&wd=&eqid=e4ddfedf0006267d000000035a005001]]></value>
+  <value column="Help" original="">账户户头的账户</value>
   <value column="PO_Description" original=""/>
   <value column="PO_Help" original=""/>
   <value column="PO_Name" original=""/>

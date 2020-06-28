@@ -103,7 +103,7 @@
  </row>
  <row id="125" trl="Y">
   <value column="MsgText" original="iDempiere, Inc.">iDempiere公司</value>
-  <value column="MsgTip" original="http://www.idempiere.org">网址 - 例如 http://www.idempiere.org</value>
+  <value column="MsgTip" original="http://www.idempiere.org">网址</value>
  </row>
  <row id="126" trl="Y">
   <value column="MsgText" original="40 Old Tannery Rd Monroe CT 06460 USA">旧坦尼利路40号，门罗，CT 州，06460 美国</value>
@@ -5527,7 +5527,7 @@
   <value column="MsgTip" original=""/>
  </row>
  <row id="53127" trl="Y">
-  <value column="MsgText" original="Credit">大神</value>
+  <value column="MsgText" original="Credit">感谢</value>
   <value column="MsgTip" original=""/>
  </row>
  <row id="53128" trl="Y">
@@ -6079,45 +6079,7 @@
   <value column="MsgTip" original=""/>
  </row>
  <row id="200143" trl="Y">
-  <value column="MsgText" original="Not available"><![CDATA[<h3>欢迎评估iDempiere</h3>
-
-如果有问题，你可以：<br />
-<br />
-​​1. 留意右侧的帮助信息<br />
-2. 查看HOME工作台的通知<br />
-3. 查看cmd控制台日志结果<br />
-4. 撩QQ群: 65713012</p>
-<br />
-<p>====用户链接====</p>
-<br />
-<p><a href="http://wiki.idempiere.org/zh" target="_blank">iDempiere wiki 中文首页</a></p>
-<p><a href="http://idempiere_community.mydoc.io/" target="_blank">iDempiere 中文社区</a></p>
-<p><a href="http://idempiere_guide_sm.mydoc.io/" target="_blank">iDempiere 4.1 管理指南</a></p>
-<p><a href="http://idempiere_guide_fi.mydoc.io/" target="_blank">iDempiere 4.1 财务指南</a></p>
-<p><a href="http://idempiere_guide_io.mydoc.io/" target="_blank">iDempiere 4.1 进销存指南</a></p>
-<p><a href="http://idempiere_guide_xb.mydoc.io/" target="_blank">iDempiere 4.1 开发指南</a></p>
-<br />
-<p>====用户pdf====</p>
-<br />
-<p><a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=ADempiere%203.4%20ERP%20Solutions" target="_blank">ADempiere 3.4 ERP Solutions</a></p>
-<p><a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=compiere%E4%B8%AD%E6%96%87%E6%89%8B%E5%86%8C" target="_blank">compiere中文手册</a></p>
-<br />
-<p>====开发者链接====</p>
-<br />
-<p><a href="http://wiki.adempiere.net/ADempiere_Rapid_Development" target="_blank">Adempiere wiki development</a></p>
-<p><a href="http://wiki.idempiere.org/en/Main_Page#Develop_iDempiere" target="_blank">iDempiere wiki development</a></p>
-<p><a href="https://en.wikiversity.org/wiki/Adempiere_Technical_Training" target="_blank">wikiversity Training</a>&nbsp;</p>
-<br />
-<p>====开发者pdf====</p>
-<br />
-<p><a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=Adempiere%203.6%20cookbook" target="_blank">Adempiere 3.6 cookbook</a></p>
-<br />
-<p>====版权说明====</p>
-<br />
-<p>z5k1@qq.com 依<a href="http://www.gnu.org/licenses/gpl-2.0.html" target="_blank">GPLv2</a>贡献本次汉化。</p>
-<br />
-<p>2017-11-11</p>
-]]></value>
+  <value column="MsgText" original="Not available">欢迎Welcome!</value>
   <value column="MsgTip" original=""/>
  </row>
  <row id="200144" trl="Y">
