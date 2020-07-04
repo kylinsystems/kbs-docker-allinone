@@ -36,3 +36,6 @@ The all-in-one package to build and run KBS-iDempiere in Docker
 * https://github.com/kylinsystems/kbs-docker-allinone
 * https://github.com/kylinsystems/kbs-idempiere
 * https://github.com/idempiere/idempiere-docker
+
+## Version
+202007041154
