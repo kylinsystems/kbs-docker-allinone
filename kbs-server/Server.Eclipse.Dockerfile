@@ -82,6 +82,8 @@ RUN wget https://github.com/kylinsystems/kbs-idempiere/releases/download/7.1.0.l
 RUN mv /tmp/app/home.properties ${IDEMPIERE_HOME}/home.properties
 RUN mv /tmp/app/eclipse/kbs-server.sh ${IDEMPIERE_HOME}/kbs-server.sh
 RUN mv /tmp/app/lang ${IDEMPIERE_HOME}/data/lang
+## Default Properties
+RUN mv /tmp/app/idempiere.properties ${IDEMPIERE_HOME}/idempiere.properties
 ## Default CoaFile
 RUN mv /tmp/app/AccountingDefaultsOnly.csv ${IDEMPIERE_HOME}/data/import/AccountingDefaultsOnly.csv
 ## Docker Entrypoint
@@ -104,7 +106,7 @@ RUN chmod 755 ${IDEMPIERE_HOME}/utils/postgresql/*.sh
 EXPOSE 8080 8443 4554
 
 ### Health Check
-HEALTHCHECK --interval=5s --timeout=3s --retries=12 CMD curl --silent -fs http://localhost:8080/app || exit 1
+# HEALTHCHECK --interval=5s --timeout=3s --retries=12 CMD curl --silent -fs http://localhost:8080/app || exit 1
 
 
 ### Setup script for Entrypoint

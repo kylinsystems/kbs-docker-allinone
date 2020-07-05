@@ -6,7 +6,7 @@ echo "Start Docker Container for KBS Server"
 echo "Timezone : $TZ" 
 
 KEY_STORE_PASS=${KEY_STORE_PASS:-myPassword}
-KEY_STORE_ON=${KEY_STORE_ON:-kylinsystems.com}
+KEY_STORE_ON=${KEY_STORE_ON:-kbs-server}
 KEY_STORE_OU=${KEY_STORE_OU:-KBS Server}
 KEY_STORE_O=${KEY_STORE_O:-KBS}
 KEY_STORE_L=${KEY_STORE_L:-Shanghai}
