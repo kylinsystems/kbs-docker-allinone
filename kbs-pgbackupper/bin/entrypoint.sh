@@ -4,6 +4,8 @@ set -e
 
 source /backupper_bin/includes.sh
 
+echo "Timezone : $TZ" 
+
 CRON_FILE="/tmp/crontab.txt"
 echo "" > "$CRON_FILE"
 

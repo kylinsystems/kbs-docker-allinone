@@ -3,18 +3,19 @@
 #
 FROM phusion/baseimage:18.04-1.0.0
 
+ENV KBS_VERSION 202007051029
 
 ### Make default locale
 RUN locale-gen en_US.UTF-8 && \
     echo 'LANG="en_US.UTF-8"' > /etc/default/locale
 
 
-### Setup fast apt in China
-RUN echo "deb https://mirrors.huaweicloud.com/ubuntu/ bionic main restricted universe multiverse \n" \
-		"deb https://mirrors.huaweicloud.com/ubuntu/ bionic-security main restricted universe multiverse \n" \
-	    "deb https://mirrors.huaweicloud.com/ubuntu/ bionic-updates main restricted universe multiverse \n" \
-		"deb https://mirrors.huaweicloud.com/ubuntu/ bionic-proposed main restricted universe multiverse \n" \
-        "deb https://mirrors.huaweicloud.com/ubuntu/ bionic-backports main restricted universe multiverse " > /etc/apt/sources.list
+# ### Setup fast apt in China
+# RUN echo "deb https://mirrors.huaweicloud.com/ubuntu/ bionic main restricted universe multiverse \n" \
+# 		"deb https://mirrors.huaweicloud.com/ubuntu/ bionic-security main restricted universe multiverse \n" \
+# 	    "deb https://mirrors.huaweicloud.com/ubuntu/ bionic-updates main restricted universe multiverse \n" \
+# 		"deb https://mirrors.huaweicloud.com/ubuntu/ bionic-proposed main restricted universe multiverse \n" \
+#         "deb https://mirrors.huaweicloud.com/ubuntu/ bionic-backports main restricted universe multiverse " > /etc/apt/sources.list
 
 
 ### Install unzip and other useful packages
