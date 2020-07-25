@@ -83,7 +83,7 @@ RUN mv /tmp/app/home.properties ${IDEMPIERE_HOME}/home.properties
 RUN mv /tmp/app/eclipse/kbs-server.sh ${IDEMPIERE_HOME}/kbs-server.sh
 RUN mv /tmp/app/lang ${IDEMPIERE_HOME}/data/lang
 ## Default Properties
-RUN mv /tmp/app/idempiere.properties ${IDEMPIERE_HOME}/idempiere.properties
+# RUN mv /tmp/app/idempiere.properties ${IDEMPIERE_HOME}/idempiere.properties
 ## Default CoaFile
 RUN mv /tmp/app/AccountingDefaultsOnly.csv ${IDEMPIERE_HOME}/data/import/AccountingDefaultsOnly.csv
 ## Docker Entrypoint
