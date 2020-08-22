@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-BASE=`dirname $(readlink -f /opt/idempiere-server/idempiere-server.sh)`
+BASE=$IDEMPIERE_HOME
 
 if [ $JAVA_HOME ]; then
   JAVA=$JAVA_HOME/bin/java
