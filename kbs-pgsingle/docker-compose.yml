@@ -11,7 +11,7 @@ volumes:
 services:
     # PG Database Standalone
     pgserver:
-        image: postgres:11.8
+        image: postgres:11.9
         container_name: kbs-pgserver
         restart: always
         environment:
