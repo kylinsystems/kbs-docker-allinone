@@ -1,9 +1,9 @@
 #
-# Dockerfile of KBS-Server-Eclipse
+# Dockerfile of KBS-Server-Eclipse (Pro)
 #
 FROM phusion/baseimage:18.04-1.0.0
 
-ENV KBS_VERSION 202007051029
+ENV KBS_VERSION 202009020653
 
 ### Make default locale
 RUN locale-gen en_US.UTF-8 && \

@@ -1,4 +1,4 @@
-FROM postgres:11.8
+FROM postgres:11.9
 
 # Add debian mirror in China for faster accessing
 RUN echo "deb http://mirrors.163.com/debian/ stretch main non-free contrib \n" \

@@ -38,4 +38,4 @@ The all-in-one package to build and run KBS-iDempiere in Docker
 * https://github.com/idempiere/idempiere-docker
 
 ## Version
-202008310722
+202009020653
