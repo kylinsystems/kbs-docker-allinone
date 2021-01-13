@@ -3,7 +3,7 @@
 #
 FROM phusion/baseimage:18.04-1.0.0
 
-ENV KBS_VERSION 202009020653
+ENV KBS_VERSION 202101130729
 
 ### Make default locale
 RUN locale-gen en_US.UTF-8 && \
@@ -63,13 +63,13 @@ RUN rm /etc/localtime && \
 
 
 ### Setup IDEMPIERE_HOME
-ENV IDEMPIERE_VERSION 7.1.0.latest
+ENV IDEMPIERE_VERSION 8.2.0.latest
 ENV IDEMPIERE_HOME /opt/idempiere-server/
 ENV IDEMPIERE_FILE kbs-server-${IDEMPIERE_VERSION}-linux.gtk.x86_64.zip
 WORKDIR $IDEMPIERE_HOME
 
 ## Setup IDEMPIERE_HOME (online mode)
-RUN wget https://github.com/kylinsystems/kbs-idempiere/releases/download/7.1.0.latest/${IDEMPIERE_FILE} \
+RUN wget https://github.com/kylinsystems/kbs-idempiere/releases/download/{IDEMPIERE_VERSION}/${IDEMPIERE_FILE} \
 	&& unzip -d /opt ${IDEMPIERE_FILE} && rm ${IDEMPIERE_FILE}
 
 # ## Setup IDEMPIERE_HOME (offline mode)
