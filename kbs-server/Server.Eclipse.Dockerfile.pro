@@ -3,7 +3,7 @@
 #
 FROM phusion/baseimage:18.04-1.0.0
 
-ENV KBS_VERSION 202101131043
+ENV KBS_VERSION 202101131046
 
 ### Make default locale
 RUN locale-gen en_US.UTF-8 && \
