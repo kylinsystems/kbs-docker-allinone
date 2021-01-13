@@ -7,7 +7,7 @@ networks:
 
 services:
   pgadmin4:
-    image: dpage/pgadmin4:4.25
+    image: dpage/pgadmin4:4.29
     container_name: kbs-pgadmin4
     restart: always
     ports:
