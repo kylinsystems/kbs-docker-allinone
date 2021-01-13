@@ -1,5 +1,5 @@
 REM KBS Version
-set KBS_TAG=7.1.0.latest
+set KBS_TAG=8.2.0.latest
 set KBS_DEBUG=true
 
 REM KBS Database

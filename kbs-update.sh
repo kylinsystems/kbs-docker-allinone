@@ -4,7 +4,7 @@ echo "------------------------------------------------------------"
 echo "####### Updating KBS Docker Suite"
 echo "------------------------------------------------------------"
 
-export KBS_TAG=7.1.0.latest
+export KBS_TAG=8.2.0.latest
 export KBS_DEBUG=true
 
 export KBS_DB_HOST=kbs-pgserver
