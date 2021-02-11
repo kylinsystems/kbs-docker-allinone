@@ -1,7 +1,7 @@
-# KBS Docker All-in-One On-Premises Suite 
+# KBS Docker All-in-One On-Premise Suite 
 The all-in-one package to build and run KBS-iDempiere in Docker
 
-## How to Install, Uninstall and Update in Docker Desktop
+## How to Install, Uninstall and Update in Docker Desktop (only support Windows x64 platform, @todo@ for Linux)
 * Install KBS: 
     * `kbs-setup.bat|sh` 
 * Uninstall KBS: 
@@ -12,6 +12,9 @@ The all-in-one package to build and run KBS-iDempiere in Docker
 ## Usage
 * KBS Application Home
   * [http://localhost:8080](http://localhost:8080)
+
+* KBS Application WebUI
+  * [http://localhost:8080/app](http://localhost:8080/app)
 
 * KBS Server Monitor (SuperUser/System)
   * [http://localhost:8080/idempiereMonitor](http://localhost:8080/idempiereMonitor)
@@ -33,9 +36,5 @@ The all-in-one package to build and run KBS-iDempiere in Docker
 
 
 ## Reference
-* https://github.com/kylinsystems/kbs-docker-allinone
 * https://github.com/kylinsystems/kbs-idempiere
 * https://github.com/idempiere/idempiere-docker
-
-## Version
-202009020653
