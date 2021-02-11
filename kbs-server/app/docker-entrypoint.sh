@@ -60,26 +60,25 @@ if [[ "$1" == "kbs-server" ]]; then
         exit 1
     fi
 
+    echo "Removing default settings..."
+    rm -f idempiereEnv.properties jettyhome/etc/keystore
+
+    echo "Executing console-setup..."
     echo -e "$JAVA_HOME\n$IDEMPIERE_HOME\n$KEY_STORE_PASS\n$KEY_STORE_ON\n$KEY_STORE_OU\n$KEY_STORE_O\n$KEY_STORE_L\n$KEY_STORE_S\n$KEY_STORE_C\n$IDEMPIERE_HOST\n$IDEMPIERE_PORT\n$IDEMPIERE_SSL_PORT\nN\n2\n$DB_HOST\n$DB_PORT\n$DB_NAME\n$DB_USER\n$DB_PASS\n$DB_ADMIN_PASS\n$MAIL_HOST\n$MAIL_USER\n$MAIL_PASS\n$MAIL_ADMIN\nY\n" | ./console-setup.sh
 
     if ! PGPASSWORD=$DB_PASS psql -h $DB_HOST -U $DB_USER -d $DB_NAME -c "\q" > /dev/null 2>&1 ; then
         cd utils
         echo "Database '$DB_NAME' not found, starting import..."
         ./RUN_ImportIdempiere.sh
-        echo "Synchronizing database..."
-        ./RUN_SyncDB.sh
-        cd ..
-        # echo "Signing database..."
-        # ./sign-database-build.sh
+        
+        cd ../data/lang
+        ./addLanguages.sh > output.log
     else
         echo "Database '$DB_NAME' is found..."
         if [[ "$MIGRATE_EXISTING_DATABASE" == "true" ]]; then
             cd utils
             echo "MIGRATE_EXISTING_DATABASE is equal to 'true'. Synchronizing database..."
             ./RUN_SyncDB.sh
-            cd ..
-            # echo "Signing database..."
-            # ./sign-database-build.sh
         else
             echo "MIGRATE_EXISTING_DATABASE is equal to 'false'. Skipping..."
         fi

@@ -21,7 +21,7 @@ services:
             MIGRATE_EXISTING_DATABASE: ${MIGRATE_EXISTING_DATABASE}
         build:
             context: .
-            dockerfile: Server.Eclipse.Dockerfile
+            dockerfile: Server-dev.Eclipse.Dockerfile
         ports:
             - ${PORT_KBS}:8080
             - 4554:4554 # debug
