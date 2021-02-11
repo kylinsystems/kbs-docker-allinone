@@ -7,8 +7,6 @@ call env.bat
 REM ######################################################
 REM Stopping and removing containers...
 REM ######################################################
-docker-compose -f kbs-server/docker-compose-jpiere.yml down -v
-
 docker-compose -f kbs-server/docker-compose.yml down -v
 docker-compose -f kbs-pgadmin4/docker-compose.yml down -v
 docker-compose -f kbs-pgsingle/docker-compose.yml down -v
