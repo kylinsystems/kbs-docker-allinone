@@ -1,4 +1,4 @@
-REM KBS Version
+REM KBS ENV
 set KBS_TAG=8.2.0.latest
 set KBS_DEBUG=true
 
