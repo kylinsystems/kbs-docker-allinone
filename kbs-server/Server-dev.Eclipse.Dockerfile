@@ -50,7 +50,7 @@ ENV IDEMPIERE_HOME /opt/idempiere-server
 ENV IDEMPIERE_FILE kbs-server-${KBS_TAG}-linux.gtk.x86_64.zip
 WORKDIR $IDEMPIERE_HOME
 
-## Setup IDEMPIERE_HOME (offline mode)
+## Setup IDEMPIERE Package (offline mode)
 RUN unzip -d /opt /tmp/app/${IDEMPIERE_FILE}
 RUN rm /tmp/app/${IDEMPIERE_FILE}
 
