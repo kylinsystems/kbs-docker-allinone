@@ -1,0 +1,43 @@
+version: '3.7'
+
+networks:
+    default:
+        external:
+            name: kbs_core
+
+services:
+  greenmail:
+    image: "greenmail/standalone:1.6.2"
+    container_name: kbs-greenmail
+    restart: always
+    environment:
+      - JAVA_OPTS=-Dgreenmail.verbose -Dgreenmail.users=foo:password@example.com
+    ports:
+      - 3025:3025 # SMTP
+      - 3110:3110 # POP3
+      - 3143:3143 # IMAP
+      - 3465:3465 # SMTPS
+      - 3993:3993 # IMAPS
+      - 3995:3995 # POP3S
+    networks:
+        default:
+            aliases:
+                - kbs-greenmail-net
+
+  roundcube:
+    image: roundcube/roundcubemail:1.4.11-apache
+    container_name: kbs-roundcube
+    restart: always
+    depends_on:
+      - greenmail
+    ports:
+      - ${PORT_ROUNDCUBEMAIL}:80
+    environment:
+      - ROUNDCUBEMAIL_DEFAULT_HOST=greenmail  # IMAP server - tls:// prefix for STARTTLS
+      - ROUNDCUBEMAIL_DEFAULT_PORT=3143       # IMAP port
+      - ROUNDCUBEMAIL_SMTP_SERVER=greenmail   # SMTP server - tls:// prefix for STARTTLS
+      - ROUNDCUBEMAIL_SMTP_PORT=3025          # SMTP port
+    networks:
+        default:
+            aliases:
+                - kbs-roundcube-net

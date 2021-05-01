@@ -21,7 +21,9 @@ REM ######################################################
 docker-compose -f kbs-portainer/docker-compose.yml build
 docker-compose -f kbs-pgsingle/docker-compose.yml build
 docker-compose -f kbs-pgadmin4/docker-compose.yml build
+docker-compose -f kbs-greenmail/docker-compose.yml build
 docker-compose -f kbs-server/docker-compose.yml build --build-arg KBS_TAG=%KBS_TAG%
+
 
 REM ######################################################
 REM Starting...
@@ -29,7 +31,9 @@ REM ######################################################
 docker-compose -f kbs-portainer/docker-compose.yml up --force-recreate -d
 docker-compose -f kbs-pgsingle/docker-compose.yml up --force-recreate -d
 docker-compose -f kbs-pgadmin4/docker-compose.yml up --force-recreate -d
+docker-compose -f kbs-greenmail/docker-compose.yml up --force-recreate -d
 docker-compose -f kbs-server/docker-compose.yml up --force-recreate -d
+
 
 REM ######################################################
 REM List all
